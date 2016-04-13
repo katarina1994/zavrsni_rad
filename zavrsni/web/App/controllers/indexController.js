@@ -1,0 +1,187 @@
+﻿web.controller('indexController', ['$scope', '$window', 'restoraniService', 'jelaService', '$route', function ($scope, $window, restoraniService, jelaService, $route) {
+
+    var res = new Array();
+    $scope.restorani = null;
+    var id = new Array();
+    var popis_restorana = null;
+    var moja_adresa = null;
+    $scope.nadeniRestorani = [];
+    var spremi = new Array();
+    var my_latitude = null;
+    var my_longitude = null;
+
+
+
+    function getData() {
+        restoraniService.getRestorani().then(function (result) {
+            $scope.restorani = result.data;
+        });
+    }
+    getData();
+
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 45.8135047, lng: 15.9742034 },
+        zoom: 12
+    });
+
+    $scope.contacts = [];
+    $scope.address = '';
+    var map;
+    $scope.dodajAdresu = function () {
+
+        $scope.contacts.push({ adresa: $scope.address });
+        var geocoder = new google.maps.Geocoder();
+        var address = $scope.address;
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                my_latitude = results[0].geometry.location.lat();
+                my_longitude = results[0].geometry.location.lng();
+                
+                angular.forEach($scope.restorani, function (value, key) {
+                    angular.forEach(value.location, function (value, key) {
+                        res.push(value.wellKnownText.split(" "));
+                    });
+                });
+
+                for (i = 0; i < res.length ; i++) {
+
+                    res[i][1] = parseFloat(res[i][1].match(/[+-]?((\.\d+)|(\d+(\.\d+)?)([eE][+-]?\d+)?)/g)) || [];
+                    res[i][2] = parseFloat(res[i][2].match(/[+-]?((\.\d+)|(\d+(\.\d+)?)([eE][+-]?\d+)?)/g)) || [];
+                }
+
+                var destination = new Array();
+                var origin = { lat: my_latitude, lng: my_longitude };
+                for (i = 0; i < res.length ; i++) {
+                    destination.push(new google.maps.LatLng(res[i][2], res[i][1]));
+                }
+
+                var service = new google.maps.DistanceMatrixService;
+                service.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: destination,
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.METRIC,
+                    avoidHighways: false,
+                    avoidTolls: false
+                }, function (response, status) {
+                    if (status !== google.maps.DistanceMatrixStatus.OK) {
+                        alert('Error was: ' + status);
+                    } else {
+                        var originList = response.originAddresses;
+                        var destinationList = response.destinationAddresses;                      
+
+                        localStorage["moja_adresa"] = JSON.stringify(originList);
+                        var dest_udalj = new Array;
+                        var j = 0;
+                        for (var i = 0; i < originList.length; i++) {
+                            var results = response.rows[i].elements;
+
+                            for (j = 0 ; j < results.length; j++) {
+                                dest_udalj.push(parseFloat(results[j].distance.value / 1000));
+                                if ((results[j].distance.value / 1000) < 1) {
+                                    dest_udalj.push((results[j].distance.value / 1000));
+                                }
+                            }
+
+                            for (var k = 0; k < dest_udalj.length; k++) {
+                                restoraniService.getRestoraniByDistance(k).then(function (result) {
+                                    var rest = result.data;
+                                    angular.forEach(rest, function (value, key) {
+                                        if (value.radijusDostave >= dest_udalj[(value.id - 1)]) {
+                                            $scope.nadeniRestorani.push(value);
+
+                                        }
+
+                                    });
+
+                                    for (m = 0; m < $scope.nadeniRestorani.length; m++) {
+                                        spremi[m] = $scope.nadeniRestorani[m].adresa;
+                                    }
+                                    localStorage["popis_restorana"] = JSON.stringify(spremi);
+
+                                });
+
+                            }
+                         
+                        }
+                    }
+                });
+
+            } else {
+                alert("Molimo unesite adresu.")
+            }
+
+        });
+
+        $scope.address = '';
+        $scope.contacts = [];
+        $scope.nadeniRestorani = [];
+        res = [];
+        spremi = [];
+
+
+    }
+
+
+
+    $scope.spremi_id = function (id) {
+        //console.log(id);
+        jelaService.set(id);
+    }
+
+
+
+    $scope.prikaziKartu = function () {
+        popis_restorana = JSON.parse(localStorage.getItem("popis_restorana"));
+        moja_adresa = JSON.parse(localStorage.getItem("moja_adresa"));
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: my_latitude, lng: my_longitude },
+            zoom: 12
+        });
+        var geocoder = new google.maps.Geocoder();
+        var bounds = new google.maps.LatLngBounds;
+        var markersArray = [];
+        var destinationIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?' + 'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '';
+        deleteMarkers(markersArray);
+
+
+        var showGeocodedAddressOnMap = function (asDestination) {
+            var icon = asDestination ? destinationIcon : originIcon;
+            return function (results, status) {
+
+                if (status === google.maps.GeocoderStatus.OK) {
+                    markersArray.push(new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        icon: icon
+                    }));
+                } else {
+                    alert('Geocode was not successful due to: ' + status);
+                }
+            };
+        };
+        geocoder.geocode({ 'address': moja_adresa[0] },
+           showGeocodedAddressOnMap(false));
+
+        for (var j = 0; j < popis_restorana.length; j++) {
+            geocoder.geocode({ 'address': popis_restorana[j] },
+                showGeocodedAddressOnMap(true));
+        }
+
+        popis_restorana = null;
+        moja_adresa = null;
+    }
+
+    function deleteMarkers(markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+            markersArray[i].setMap(null);
+        }
+        markersArray = [];
+    }
+}]);

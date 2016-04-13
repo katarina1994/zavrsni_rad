@@ -1,0 +1,85 @@
+﻿<div class="container">
+
+    <div class="col-md-12 left">
+
+        <ul class="nav nav-tabs">
+            <li><a class="tabovi" data-toggle="tab" ng-click="activetab = 1"> NARUDŽBA </a></li>
+            <li><a class="tabovi" data-toggle="tab" ng-click="activetab = 2"> KAKO NARUČITI DOSTAVU? </a></li>
+            <li><a class="tabovi" data-toggle="tab" href="/#register" ng-hide="authentication.isAuth"> REGISTRACIJA </a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="col-md-12" ng-show="activetab == 1">
+                
+                <div id="output"></div>
+                <div id="map"></div>
+                <div class="container right" align="left" ng-hide="!authentication.isAuth">
+                    <div class="col-md-12 restorani">
+                        <div class="col-md-3 ">
+                            <label>UPIŠITE SVOJU ADRESU</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input placeholder="adresa" ng-model="address" type="text">
+                        </div>
+                        <div class="col-md-2">
+                            <button ng-click="dodajAdresu()">POTRAŽI RESTORANE</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button ng-click="prikaziKartu()">PRIKAŽI NA GOOGLE KARTI</button>
+                        </div>
+                        
+                        
+                    </div>
+                    <table class="table table-fixed tabovi">
+                        <thead>
+                            <tr>
+                                <th class="col-md-6">NAZIV RESTORANA</th>
+                                <th class="col-md-6">ADRESA RESTORANA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="restoran in nadeniRestorani | orderBy:'id'">
+                                <td class="col-md-6"><a class="restorani" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></td>
+                                <td class="col-md-6">{{ restoran.adresa }}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container right" align="left" ng-hide="authentication.isAuth">
+                    <table class="table table-fixed tabovi">
+                        <thead>
+                            <tr>
+                                <th class="col-md-6">NAZIV RESTORANA</th>
+                                <th class="col-md-6">ADRESA RESTORANA</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="restoran in restorani | orderBy:'id'">
+                                <td class="col-md-6"><a class="restorani" data-toggle="tab" href="/#restoran"> {{ restoran.naziv }} </a></td>
+                                <td class="col-md-6">{{ restoran.adresa }}</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-8" align="center" ng-show="activetab == 2">
+                <div class="container tabovi" align="left">
+                    bla
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
