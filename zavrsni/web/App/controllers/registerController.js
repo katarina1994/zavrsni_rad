@@ -27,7 +27,7 @@
                 $scope.loginData.userName = $scope.registration.userName;
                 $scope.loginData.password = $scope.registration.password;
                 authService.login($scope.loginData).then(function (response) {
-                    //$location.path('#/' + response.NEXTPAGE);
+                    
                 },
                     function (err) {
                         $scope.message = err.error_description;
@@ -35,8 +35,9 @@
                 );
 
                 $scope.savedSuccessfully = true;
-                $scope.message = "Vš je profil uspješno registriran.Bit ćete preusmjereni na " + response.data + "stranicu za 2 sekunde.";
                 startTimer(response.data);
+                alert("Vaš profil uspješno je registriran. Pritisnite u redu i bit ćete preusmjereni na " + response.data + " stranicu.");
+                
 
             }, function (response) {
                 var errors = [];
@@ -45,7 +46,7 @@
                         errors.push(response.data.modelState[key][i]);
                     }
                 }
-                $scope.message = "Registracija nije uspjela: " + errors.join(' ');
+                alert("Registracija nije uspjela: " + errors.join(' '));
             }
             );
       

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <script src="https://code.angularjs.org/1.3.15/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.15/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular-cookies.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
 
 
@@ -21,23 +22,27 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-left">
                 <ul class="nav navbar-nav">
-                    <li><a ng-href="#/index">Naslovnica</a></li>
+                    <li><a id="nasl" ng-href="#/index">NASLOVNICA</a></li>
                     <li><a ng-href="#/admin" ng-show="authentication.ovlastID == 1">Admin</a></li>
                     <li><a ng-href="#/profile" ng-show="authentication.ovlastID == 2">Profil</a></li>
                     <li><a ng-href="#/voditelj" ng-show="authentication.ovlastID == 3">Voditelj</a></li>
                 </ul>
             </div>
+            
             <form class="navbar-form navbar-right">
                 <div id="login" ng-hide="authentication.isAuth">
+
                     <div class="form-group">
+                       
                         <input ng-model="loginData.userName" type="text" class="form-control" placeholder="Korisničko ime">
                         <input ng-model="loginData.password" type="password" class="form-control" placeholder="Lozinka">
+                        
                     </div>
                     <button class="btn btn-default" ng-click="login()"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Prijava</button>
 
                 </div>
                 <div id="user_info" ng-hide="!authentication.isAuth">
-                    <span class="user-welcome">Trenutno ste prijavljeni kao  <b>{{ authentication.userName }}</b></span>
+                    <span class="korisnik user-welcome">Trenutno ste prijavljeni kao  <b>{{ authentication.userName }}</b></span>
                     <button class="btn btn-default" ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Odjava</button>
                 </div>
             </form>
@@ -46,7 +51,9 @@
 
     <div id="background" class="container">
         <div ng-view></div>
+        
     </div>
+
 
     <script src="~/Scripts/jquery-2.2.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
@@ -64,7 +71,7 @@
     <script src="~/App/services/authInterceptorService.js"></script>
     <script src="~/App/services/restoraniService.js"></script>
     <script src="~/App/services/jelaService.js"></script>
-    
+    <script src="~/App/services/jela1Service.js"></script>
 
 </body>
 </html>

@@ -2,6 +2,7 @@
 
     var res = new Array();
     $scope.restorani = null;
+    $scope.aktivno = 0;
     var id = new Array();
     var popis_restorana = null;
     var moja_adresa = null;
@@ -15,15 +16,12 @@
     function getData() {
         restoraniService.getRestorani().then(function (result) {
             $scope.restorani = result.data;
+
         });
     }
     getData();
 
-
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 45.8135047, lng: 15.9742034 },
-        zoom: 12
-    });
+   
 
     $scope.contacts = [];
     $scope.address = '';
@@ -38,7 +36,9 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 my_latitude = results[0].geometry.location.lat();
                 my_longitude = results[0].geometry.location.lng();
-                
+
+
+
                 angular.forEach($scope.restorani, function (value, key) {
                     angular.forEach(value.location, function (value, key) {
                         res.push(value.wellKnownText.split(" "));
@@ -70,28 +70,29 @@
                         alert('Error was: ' + status);
                     } else {
                         var originList = response.originAddresses;
-                        var destinationList = response.destinationAddresses;                      
+                        var destinationList = response.destinationAddresses;
 
                         localStorage["moja_adresa"] = JSON.stringify(originList);
-                        var dest_udalj = new Array;
+                        $scope.dest_udalj = new Array;
                         var j = 0;
                         for (var i = 0; i < originList.length; i++) {
                             var results = response.rows[i].elements;
 
                             for (j = 0 ; j < results.length; j++) {
-                                dest_udalj.push(parseFloat(results[j].distance.value / 1000));
+                                $scope.dest_udalj.push(parseFloat(results[j].distance.value / 1000));
                                 if ((results[j].distance.value / 1000) < 1) {
-                                    dest_udalj.push((results[j].distance.value / 1000));
+                                    $scope.dest_udalj.push((results[j].distance.value / 1000));
                                 }
                             }
 
-                            for (var k = 0; k < dest_udalj.length; k++) {
+                            for (var k = 0; k < $scope.dest_udalj.length; k++) {
+
                                 restoraniService.getRestoraniByDistance(k).then(function (result) {
                                     var rest = result.data;
                                     angular.forEach(rest, function (value, key) {
-                                        if (value.radijusDostave >= dest_udalj[(value.id - 1)]) {
+                                        if (value.radijusDostave >= $scope.dest_udalj[(value.id - 1)]) {
                                             $scope.nadeniRestorani.push(value);
-
+                                            $scope.aktivno = 1;
                                         }
 
                                     });
@@ -104,7 +105,7 @@
                                 });
 
                             }
-                         
+
                         }
                     }
                 });
@@ -115,7 +116,7 @@
 
         });
 
-        $scope.address = '';
+        
         $scope.contacts = [];
         $scope.nadeniRestorani = [];
         res = [];
@@ -123,7 +124,6 @@
 
 
     }
-
 
 
     $scope.spremi_id = function (id) {
@@ -184,4 +184,5 @@
         }
         markersArray = [];
     }
+
 }]);

@@ -2,13 +2,13 @@
     background-size: 100%;
     background-repeat: no-repeat;
     padding-top: 50px;
+    overflow:scroll;
 }
 
 #background {
-    position: fixed;
+   
     width: 100%;
     height: 100%;
-    background-image: url("/images/food.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
@@ -20,18 +20,53 @@
   
     width: 800px;
     float: right;
-    height: 250px;
+    height: 70px;
+}
+
+.left {
+
+    margin-left: -40px;
+    width: 800px;
+    float: left;
+    height: 70px;
+ 
 }
 
 #map {
-
-    position :absolute;
+    position:relative;
     top:0;
     left:0;
+    float:right;
     bottom:0;
-    width: 300px;
-    height: 300px;
-    margin-top: 80px;
+    width: 500px;
+    height: 180px;
+    margin-top: -670px;
+    margin-right: -430px;
+    display:block;
+}
+
+.search {
+
+    position:relative;
+    height:700px;
+    width:300px;
+    float:right;
+    margin-top: 170px;
+    margin-right: -360px;
+    color:darkred;
+    font-size:18px;
+}
+
+.head {
+    color:darkred;
+    font-size:18px;
+    width:665px;
+
+}
+
+.navbar {
+
+    background-color:darkred;
 }
 
 .navbar-right {
@@ -39,7 +74,19 @@
     border: 0;
 }
 
+.navbar-nav {
+    font-size:20px;
+    background-color:darkred;
+}
 
+.nav.navbar-nav li a {
+    color: white;
+}
+
+.korisnik {
+    color:white
+
+}
 
 .tabovi {
     font-family: 'Open Sans';
@@ -51,9 +98,50 @@
     color: darkred;
     margin-top: 25px;
     margin-bottom: 25px;
+    
+
+}
+.link {
+    color:darkred;
+
+}
+.lista_rest {
+    color:darkred;
+    width:900px;
+    font-size:18px;
+    margin-top: 20px;
+    margin-left: -50px;
+    float:left;
+}
+
+
+.list-group-item
+{
+  overflow:hidden;  
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.badges {
+
+    font-size: 16px;
+}
+
+.jedno_jelo {
+    color:darkred;
+    font-size: 16px;
 
 }
 
+.jela {
+
+    margin-top: 50px;
+
+}
 
 .restorani {
     font-family: 'Open Sans';
@@ -77,6 +165,10 @@
     color: darkred;
 }
 
+.regButton {
+    float:left;
+    margin-left: 550px;
+}
 
 .table-fixed thead {
   background-color: white;
@@ -85,7 +177,7 @@
 .table-fixed tbody {
   height: 300px;
   overflow-y: auto;
-  width: 900px;
+  width: 855px;
   background-color:white;
   margin-right: 0px;
 }
@@ -105,29 +197,14 @@
 }
 
 
-
-
 .left button {
     font-size: 18px;
 }
 
 
-
-
-.kvart {
-    font-family: 'Open Sans';
-    font-size: 20px;
-    font-style: normal;
-    color: darkred;
-}
-
-
-
 img {
-    -webkit-filter: brightness(40%);
+    -webkit-filter: brightness(70%);
 }
-
-
 
 ul {
     float: left;
@@ -135,17 +212,6 @@ ul {
 }
 
 
-
-.left {
-    margin-right: 20px;
-    font-size: 16px;
-}
-
-.dropdown-menu {
-    max-height: 400px;
-    overflow-y: auto;
-    background-color: white;
-}
 tbody{
     background-color: rgba(255,255,255,0.6)!important;
 }

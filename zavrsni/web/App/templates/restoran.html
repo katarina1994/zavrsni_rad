@@ -1,1 +1,13 @@
-﻿jajajajja
+﻿<div class="container jela" id="parent">
+    <ul class="restorani list-group">
+        <li class="list-group-item clearfix" ng-repeat="jelo in jela"><span class="label label-default label-pill pull-xs-right">{{jelo.cijena}} kn</span>
+              <a class= "jedno_jelo btn" data-parent="#parent" data-toggle="collapse" data-target="#collapse1">{{jelo.naziv_jelo}}</a>
+        </li>
+    </ul>
+    <div id="collapse1" class="collapse restorani">
+        Tu su sastojci :D
+    </div>
+</div>
+
+
+

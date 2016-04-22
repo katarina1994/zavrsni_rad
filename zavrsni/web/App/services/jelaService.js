@@ -1,5 +1,6 @@
 ﻿web.factory('jelaService', function () {
     var savedData = {}
+
     function set(data) {
         savedData = data;
     }

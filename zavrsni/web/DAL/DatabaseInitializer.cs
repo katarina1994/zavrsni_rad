@@ -12,8 +12,8 @@ using System.Threading;
 
 namespace web.DAL
 {
-    // public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseAlways<DatabaseContext>
-    public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DatabaseContext>
+    public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseAlways<DatabaseContext>
+    //public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
         protected override void Seed(DatabaseContext context)
         {
@@ -179,11 +179,401 @@ namespace web.DAL
                 Adresa = "varazdinska ulica 50, zagreb",
                 Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
             });
-
+            context.Restorani.Add(new Restoran
+            {
+                ID = 17,
+                RadijusDostave = 3,
+                Naziv = String.Format("{0:00}restoran17", 17),
+                Adresa = "ilica 1, zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ilica 1, zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
+            });
 
 
             context.SaveChanges();
 
+
+            //jela
+
+            context.Jela.Add(new Jelo
+            {
+                    ID = 1,
+                    Naziv_jelo = "Cevapi s lukom",
+                    Cijena = 35,
+                    RestoranID = 1
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 2,
+                    Naziv_jelo = "Pizza margherita - mala",
+                    Cijena = 24,
+                    RestoranID = 1
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 3,
+                    Naziv_jelo = "Pizza margherita - velika",
+                    Cijena = 37,
+                    RestoranID = 1
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 4,
+                    Naziv_jelo = "Pizza capriciosa - mala",
+                    Cijena = 26,
+                    RestoranID = 2
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 5,
+                    Naziv_jelo = "Pizza capriciosa - velika",
+                    Cijena = 40,
+                    RestoranID = 2
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 6,
+                    Naziv_jelo = "Zagrebački odrezak",
+                    Cijena = 45,
+                    RestoranID = 2
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 7,
+                Naziv_jelo = "Cevapi s lukom",
+                Cijena = 39,
+                RestoranID = 3
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 8,
+                Naziv_jelo = "Lazanje s povrcem",
+                Cijena = 24,
+                RestoranID = 3
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 9,
+                Naziv_jelo = "Lazanje s mesom",
+                Cijena = 37,
+                RestoranID = 3
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 10,
+                Naziv_jelo = "Mesna plata - velika",
+                Cijena = 67,
+                RestoranID = 4
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 11,
+                Naziv_jelo = "Cevapi s lukom i ajvarom",
+                Cijena = 36,
+                RestoranID = 4
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 12,
+                Naziv_jelo = "Bečki odrezak s pomfritom",
+                Cijena = 52,
+                RestoranID = 4
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 13,
+                Naziv_jelo = "Pizza 4 quattro stagione",
+                Cijena = 29,
+                RestoranID = 5
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 14,
+                Naziv_jelo = "Pizza margherita - mala",
+                Cijena = 24,
+                RestoranID = 5
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 15,
+                Naziv_jelo = "Pizza margherita - velika",
+                Cijena = 41,
+                RestoranID = 5
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 16,
+                Naziv_jelo = "Palacinke s nutellom (2 kom)",
+                Cijena = 19,
+                RestoranID = 6
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 17,
+                Naziv_jelo = "Sladoledni kup",
+                Cijena = 31,
+                RestoranID = 6
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 18,
+                Naziv_jelo = "Sacher torta (kom)",
+                Cijena = 17,
+                RestoranID = 6
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 19,
+                Naziv_jelo = "Tjestenina bolognese",
+                Cijena = 27,
+                RestoranID = 7
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 20,
+                Naziv_jelo = "Tjestenina s povrcem",
+                Cijena = 34,
+                RestoranID = 7
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 21,
+                Naziv_jelo = "Pizza s tunom",
+                Cijena = 31,
+                RestoranID = 7
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 22,
+                Naziv_jelo = "Schwarzwald torta (kom)",
+                Cijena = 20,
+                RestoranID = 8
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 23,
+                Naziv_jelo = "Palacinke s pekmezom (2 kom)",
+                Cijena = 16,
+                RestoranID = 8
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 24,
+                Naziv_jelo = "Pita od jabuka (kom)",
+                Cijena = 15,
+                RestoranID = 8
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 25,
+                Naziv_jelo = "Cevapi s ajvarom - mali",
+                Cijena = 35,
+                RestoranID = 9
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 26,
+                Naziv_jelo = "Cevapi s ajvarom - veliki",
+                Cijena = 45,
+                RestoranID = 9
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 27,
+                Naziv_jelo = "Mijesana mesna plata",
+                Cijena = 59,
+                RestoranID = 9
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 28,
+                Naziv_jelo = "Pizza capriciosa",
+                Cijena = 229,
+                RestoranID = 10
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 29,
+                Naziv_jelo = "Pizza margerita - jumbo",
+                Cijena = 60,
+                RestoranID = 10
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 30,
+                Naziv_jelo = "Vegetarijanska pizza",
+                Cijena = 33,
+                RestoranID = 10
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 31,
+                Naziv_jelo = "Njoki s teletinom",
+                Cijena = 40,
+                RestoranID = 11
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 32,
+                Naziv_jelo = "Zapeceni grah s rebarcima",
+                Cijena = 31,
+                RestoranID = 11
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 33,
+                Naziv_jelo = "Strukli sa sirom (3 kom)",
+                Cijena = 30,
+                RestoranID = 11
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 34,
+                Naziv_jelo = "Jastog na bianco",
+                Cijena = 65,
+                RestoranID = 12
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 35,
+                Naziv_jelo = "Losos s prilogom",
+                Cijena = 70,
+                RestoranID = 12
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 36,
+                Naziv_jelo = "Peceni brancin s prilogom",
+                Cijena = 55,
+                RestoranID = 12
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 37,
+                Naziv_jelo = "Francuski puzevi",
+                Cijena = 120,
+                RestoranID = 13
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 38,
+                Naziv_jelo = "Tarte Bourdaloue",
+                Cijena = 100,
+                RestoranID = 13
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 39,
+                Naziv_jelo = "Coq au vin (Pijetao u vinu) ",
+                Cijena = 155,
+                RestoranID = 13
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 40,
+                Naziv_jelo = "Kebab - mala porcija",
+                Cijena = 14,
+                RestoranID = 14
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 41,
+                Naziv_jelo = "Kebab - velika porcija",
+                Cijena = 21,
+                RestoranID = 14
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 42,
+                Naziv_jelo = "Hotdog",
+                Cijena = 17,
+                RestoranID = 14
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 43,
+                Naziv_jelo = "Skampi s povrcem i rizom",
+                Cijena = 35,
+                RestoranID = 15
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 44,
+                Naziv_jelo = "Sushi",
+                Cijena = 45,
+                RestoranID = 15
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 45,
+                Naziv_jelo = "Riza u woku",
+                Cijena = 35,
+                RestoranID = 15
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 46,
+                Naziv_jelo = "Skampi s prilogom",
+                Cijena = 60,
+                RestoranID = 16
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 47,
+                Naziv_jelo = "Odrezak od tune",
+                Cijena = 70,
+                RestoranID = 16
+            });
+            context.Jela.Add(new Jelo
+            {
+                ID = 48,
+                Naziv_jelo = "Hobotnica ispod peke",
+                Cijena = 120,
+                RestoranID = 16
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 49,
+                    Naziv_jelo = "Cevapi s lukom i ajvarom",
+                    Cijena = 35,
+                    RestoranID = 17
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 50,
+                    Naziv_jelo = "Mesna plata",
+                    Cijena = 67,
+                    RestoranID = 17
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 51,
+                    Naziv_jelo = "Sis-cevapi",
+                    Cijena = 37,
+                    RestoranID = 17
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 52,
+                    Naziv_jelo = "Pizza s plodovima mora",
+                    Cijena = 26,
+                    RestoranID = 1
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 53,
+                    Naziv_jelo = "Kolac od limuna",
+                    Cijena = 40,
+                    RestoranID = 8
+            });
+            context.Jela.Add(new Jelo
+            {
+                    ID = 54,
+                    Naziv_jelo = "Pizza s plodovima mora",
+                    Cijena = 45,
+                    RestoranID = 10
+            });
+            context.SaveChanges();
+            
 
             // korisnici
             addUsers(context);

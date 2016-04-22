@@ -1,4 +1,5 @@
-﻿var web = angular.module('web', ['ngRoute', 'LocalStorageModule']);
+﻿var web = angular.module('web', ['ngRoute', 'ngCookies', 'LocalStorageModule']);
+
 
 web.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');

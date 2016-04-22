@@ -4,63 +4,64 @@
     <div class="col-md-8 col-xs-12" id="sign-up">
         <fieldset class="registracija">
             <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Ime</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="name" placeholder="Ime" ng-model="registration.ime" />
+                <label for="name" class="col-sm-3 control-label">Ime</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control input-lg" id="name" placeholder="Ime" ng-model="registration.ime" />
              
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="surname" class="col-sm-2 control-label">Prezime</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="surname" placeholder="Prezime" ng-model="registration.prezime" />
+                <label for="surname" class="col-sm-3 control-label">Prezime</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control input-lg" id="surname" placeholder="Prezime" ng-model="registration.prezime" />
                 
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="username" class="col-sm-2 control-label">Korisničko ime</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="username" placeholder="Korisničko ime" ng-model="registration.userName" />
+                <label for="username" class="col-sm-3 control-label">Korisničko ime</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control input-lg" id="username" placeholder="Korisničko ime" ng-model="registration.userName" />
                  
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">E-mail</label>
-                <div class="col-sm-9">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail" ng-model="registration.email" />
-                    <p class="help-block registracija">Molimo upišite svoj e-mail</p>
+                <label for="email" class="col-sm-3 control-label">E-mail</label>
+                <div class="col-sm-7">
+                    <input type="email" class="form-control input-lg" id="email" placeholder="E-mail" ng-model="registration.email" />
+                    
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="password" class="col-sm-2 control-label">Lozinka</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" id="password" placeholder="Lozinka" ng-model="registration.password" />
-                    <p class="help-block registracija">Lozinka se treba sastojati od barem 8 znakova</p>
+                <label for="password" class="col-sm-3 control-label">Lozinka</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control input-lg" id="password" placeholder="Lozinka" ng-model="registration.password" />
+                   
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="confirmPassword" class="col-sm-2 control-label">Potvrdite lozinku</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Lozinka" ng-model="registration.confirmPassword" />
-                    <p class="help-block registracija">Potvrdite lozinku</p>
+                <label for="confirmPassword" class="col-sm-3 control-label">Potvrdite lozinku</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control input-lg" id="confirmPassword" placeholder="Lozinka" ng-model="registration.confirmPassword" />
+                    
                 </div>
             </div>
         </fieldset>
-    </div>
-
-    <div class="control-group">
-        <div class="controls">
-            <div id="alertID" class="alert alert-danger" style="display:none;"></div>
-            <div class="col-md-4 col-sm-4">
-                <button class="btn btn-success" ng-click="register()"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Registrirajte se</button>
+        <div class="control-group regButton">
+            <div class="controls">
+                <div id="alertID" class="alert alert-danger" style="display:none;"></div>
+                <div class="col-md-2 col-sm-2">
+                    <button class="btn btn-danger" ng-click="register()"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Registrirajte se</button>
+                </div>
+                <label>{{ message }}</label>
             </div>
-            <label>{{ message }}</label>
         </div>
     </div>
+
+    
 </form>
 
