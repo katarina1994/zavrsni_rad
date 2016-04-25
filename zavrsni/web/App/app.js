@@ -1,4 +1,4 @@
-﻿var web = angular.module('web', ['ngRoute', 'ngCookies', 'LocalStorageModule']);
+﻿var web = angular.module('web', ['ngRoute', 'ngCookies', 'LocalStorageModule', 'ui.bootstrap']);
 
 
 web.config(function ($httpProvider) {

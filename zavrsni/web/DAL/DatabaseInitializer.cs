@@ -39,54 +39,54 @@ namespace web.DAL
                 
                 ID = 1,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran1", 1),
-                Adresa = "nova cesta 173, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("nova cesta 173, zagreb").Latitude, locationService.GetLatLongFromAddress("nova cesta 173, zagreb").Longitude)
+                Naziv = "Pizzeria Italy",
+                Adresa = "Nova cesta 173, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Nova cesta 173, Zagreb").Latitude, locationService.GetLatLongFromAddress("nova cesta 173, zagreb").Longitude)
             });
         
             context.Restorani.Add(new Restoran
             {
                 ID = 2,
                 RadijusDostave = 6,
-                Naziv = String.Format("{0:00}restoran2", 2),
-                Adresa = "tkalciceva 11, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("tkalciceva 11, zagreb").Latitude, locationService.GetLatLongFromAddress("tkalciceva 11, zagreb").Longitude)
+                Naziv = "Nokturno",
+                Adresa = "Tkalciceva 11, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Tkalciceva 11, Zagreb").Latitude, locationService.GetLatLongFromAddress("tkalciceva 11, zagreb").Longitude)
             });
            
             context.Restorani.Add(new Restoran
             {
                 ID = 3,
-                RadijusDostave = 5,
-                Naziv = String.Format("{0:00}restoran3", 3),
-                Adresa = "Trg stjepana radica 61, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("stjepana radica 61, zagreb").Latitude, locationService.GetLatLongFromAddress("stjepana radica 61, zagreb").Longitude)
+                RadijusDostave = 2,
+                Naziv = "Restoran Mali Raj",
+                Adresa = "Trg Stjepana Radica 6, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Trg Stjepana Radica 6, Zagreb").Latitude, locationService.GetLatLongFromAddress("stjepana radica 61, zagreb").Longitude)
             });
           
             context.Restorani.Add(new Restoran
             {
                 ID = 4,
                 RadijusDostave = 2,
-                Naziv = String.Format("{0:00}restoran4", 4),
-                Adresa = "bana josipa jelacica 2, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("bana josipa jelacica 2, zagreb").Latitude, locationService.GetLatLongFromAddress("bana josipa jelacica 2, zagreb").Longitude)
+                Naziv = "Grill House",
+                Adresa = "Trg bana Josipa Jelacica 2, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Trg bana Josipa Jelacica 2, Zagreb").Latitude, locationService.GetLatLongFromAddress("bana josipa jelacica 2, zagreb").Longitude)
             });
          
             context.Restorani.Add(new Restoran
             {
                 ID = 5,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran5", 5),
-                Adresa = "marina drzica 143, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("marina drzica 143, zagreb").Latitude, locationService.GetLatLongFromAddress("marina drzica 143, zagreb").Longitude)
+                Naziv = "Pizzeria Pegor",
+                Adresa = "Ulica Marina Drzica 143, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ulica Marina Drzica 143, Zagreb").Latitude, locationService.GetLatLongFromAddress("marina drzica 143, zagreb").Longitude)
             });
            
             context.Restorani.Add(new Restoran
             {
                 ID = 6,
                 RadijusDostave = 4,
-                Naziv = String.Format("{0:00}restoran6", 6),
-                Adresa = "avenija dubrovnik 55, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("avenija dubrovnik 55, zagreb").Latitude, locationService.GetLatLongFromAddress("avenija dubrovnik 55, zagreb").Longitude)
+                Naziv = "Cookies",
+                Adresa = "Avenija Dubrovnik 55, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Avenija Dubrovnik 55, Zagreb").Latitude, locationService.GetLatLongFromAddress("avenija dubrovnik 55, zagreb").Longitude)
 
             });
           
@@ -94,98 +94,98 @@ namespace web.DAL
             {
                 ID = 7,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran7", 7),
-                Adresa = "sveucilisna aleja 78, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("sveucilisna aleja 78, zagreb").Latitude, locationService.GetLatLongFromAddress("sveucilisna aleja 78, zagreb").Longitude)
+                Naziv = "Italian Fantasy",
+                Adresa = "Sveucilisna aleja 78, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Sveucilisna aleja 78, Zagreb").Latitude, locationService.GetLatLongFromAddress("sveucilisna aleja 78, zagreb").Longitude)
             });
           
             context.Restorani.Add(new Restoran
             {
                 ID = 8,
                 RadijusDostave = 6,
-                Naziv = String.Format("{0:00}restoran8", 8),
-                Adresa = "ulica grada vukovara 100, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ulica grada vukovara 100, zagreb").Latitude, locationService.GetLatLongFromAddress("ulica grada vukovara 100, zagreb").Longitude)
+                Naziv = "Cakes and Cholcolate",
+                Adresa = "Ulica grada Vukovara 100, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ulica grada Vukovara 100, Zagreb").Latitude, locationService.GetLatLongFromAddress("ulica grada vukovara 100, zagreb").Longitude)
             });
            
             context.Restorani.Add(new Restoran
             {
                 ID = 9,
                 RadijusDostave = 7,
-                Naziv = String.Format("{0:00}restoran9", 9),
-                Adresa = "dalmatinska ulica 4, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("dalmatinska ulica 4, zagreb").Latitude, locationService.GetLatLongFromAddress("dalmatinska ulica 4, zagreb").Longitude)
+                Naziv = "Steak House",
+                Adresa = "Dalmatinska ulica 14, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Dalmatinska ulica 14, Zagreb").Latitude, locationService.GetLatLongFromAddress("dalmatinska ulica 4, zagreb").Longitude)
             });
             
             context.Restorani.Add(new Restoran
             {
                 ID = 10,
                 RadijusDostave = 4,
-                Naziv = String.Format("{0:00}restoran10", 10),
-                Adresa = "ulica marka marulica 89, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ulica marka marulica 89, zagreb").Latitude, locationService.GetLatLongFromAddress("ulica marka marulica 89, zagreb").Longitude)
+                Naziv = "Pizzeria Maslina",
+                Adresa = "Ulica Marka Marulica 89, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ulica Marka Marulica 89, Zagreb").Latitude, locationService.GetLatLongFromAddress("ulica marka marulica 89, zagreb").Longitude)
             });
 
             context.Restorani.Add(new Restoran
             {
                 ID = 11,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran11", 11),
-                Adresa = "slavonska avenija 23, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("slavonska avenija 23, zagreb").Latitude, locationService.GetLatLongFromAddress("slavonska avenija 23, zagreb").Longitude)
+                Naziv = "Restoran Seoski kutak",
+                Adresa = "Slavonska avenija 23, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Slavonska avenija 23, Zagreb").Latitude, locationService.GetLatLongFromAddress("slavonska avenija 23, zagreb").Longitude)
             });
-          
+
             context.Restorani.Add(new Restoran
             {
                 ID = 12,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran12", 12),
-                Adresa = "ljubljanica 5, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ljubljanica 5, zagreb").Latitude, locationService.GetLatLongFromAddress("ljubljanica 5, zagreb").Longitude)
+                Naziv = "Restoran Školjka",
+                Adresa = "Ljubljanica 5, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ljubljanica 5, Zagreb").Latitude, locationService.GetLatLongFromAddress("ljubljanica 5, zagreb").Longitude)
             });
           
             context.Restorani.Add(new Restoran
             {
                 ID = 13,
                 RadijusDostave = 7,
-                Naziv = String.Format("{0:00}restoran13", 13),
-                Adresa = "zagrebacka ulica 156, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("zagrebacka ulica 156, zagreb").Latitude, locationService.GetLatLongFromAddress("zagrebacka ulica 156, zagreb").Longitude)
+                Naziv = "Chez Marie",
+                Adresa = "Zagrebacka ulica 156, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Zagrebacka ulica 156, Zagreb").Latitude, locationService.GetLatLongFromAddress("zagrebacka ulica 156, zagreb").Longitude)
             });
             
             context.Restorani.Add(new Restoran
             {
                 ID = 14,
                 RadijusDostave = 6,
-                Naziv = String.Format("{0:00}restoran14", 14),
-                Adresa = "ilica 132, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ilica 132, zagreb").Latitude, locationService.GetLatLongFromAddress("ilica 132, zagreb").Longitude)
+                Naziv = "Fast food Tasty",
+                Adresa = "Ilica 132, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ilica 132, Zagreb").Latitude, locationService.GetLatLongFromAddress("ilica 132, zagreb").Longitude)
             });
             
             context.Restorani.Add(new Restoran
             {
                 ID = 15,
                 RadijusDostave = 4,
-                Naziv = String.Format("{0:00}restoran15", 15),
-                Adresa = "jarun 43, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("jarun 43, zagreb").Latitude, locationService.GetLatLongFromAddress("jarun 43, zagreb").Longitude)
+                Naziv = "Wokwok",
+                Adresa = "Jarun 43, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Jarun 43, Zagreb").Latitude, locationService.GetLatLongFromAddress("jarun 43, zagreb").Longitude)
             });
           
             context.Restorani.Add(new Restoran
             {
                 ID = 16,
                 RadijusDostave = 2,
-                Naziv = String.Format("{0:00}restoran16", 16),
-                Adresa = "varazdinska ulica 50, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
+                Naziv = "Restoran Ribica",
+                Adresa = "Krapinska ulica 50, zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Krapinska ulica 50, zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
             });
             context.Restorani.Add(new Restoran
             {
                 ID = 17,
                 RadijusDostave = 3,
-                Naziv = String.Format("{0:00}restoran17", 17),
-                Adresa = "ilica 1, zagreb",
-                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("ilica 1, zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
+                Naziv = "Grill 'n' steak",
+                Adresa = "Ilica 1, Zagreb",
+                Location = Restoran.CreatePoint(locationService.GetLatLongFromAddress("Ilica 1, Zagreb").Latitude, locationService.GetLatLongFromAddress("varazdinska ulica 50, zagreb").Longitude)
             });
 
 

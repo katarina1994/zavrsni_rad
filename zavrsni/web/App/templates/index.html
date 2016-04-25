@@ -2,93 +2,275 @@
 
     <div class="col-md-12 left">
 
-        <ul class="nav nav-tabs">
-            <li class="active"><a class="tabovi" data-toggle="pill" ng-click="activetab = 1"> NARUDŽBA </a></li>
-            <li><a class="tabovi" data-toggle="pill" ng-click="activetab = 2"> KAKO NARUČITI DOSTAVU? </a></li>
-            <li><a class="tabovi" data-toggle="pill" href="/#register" ng-hide="authentication.isAuth"> REGISTRACIJA </a></li>
-        </ul>
-       
-        <div class="tab-content">
-            <div class="col-md-12" ng-hide="activetab == 2">
+        <div class="col-md-12">
+            <div class="container left" align="left" ng-hide="!authentication.isAuth">
+                <div class="botuni">
+                    <div class="col-md-10">
+                        <label>UPIŠITE SVOJU ADRESU</label>
+                        <input placeholder="adresa" ng-model="address" class="form-control">
+                    </div>
 
-
-                <div class="container left" align="left" ng-hide="!authentication.isAuth">
-                    <div class="col-md-12 restorani">
-                        <div class="col-md-4 ">
-                            <label>UPIŠITE SVOJU ADRESU</label>
-                            <input placeholder="adresa" ng-model="address" class="form-control">
+                    <div class="dugmici">
+                        <div class="col-md-5">
+                            <button type="button" class="btn btn-info btn-block" ng-click="dodajAdresu()">POTRAŽI RESTORANE</button>
                         </div>
 
-                        <div class="col-md-4">
-                            <button type="button" class="btn btn-success btn-block" ng-click="dodajAdresu()">POTRAŽI RESTORANE</button>
-                        </div>
-                        <br />
-                        <br />
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-success" ng-click="prikaziKartu()">PRIKAZ GOOGLE KARTE</button>
+                            <button type="button" class="btn btn-info" ng-click="prikaziKartu()">PRIKAZ GOOGLE KARTE</button>
                         </div>
+                    </div>
+                </div>
 
+                <div class="list-group row tablica" ng-show="aktivno==1">
+                    <div class="pretraga">
+                        <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="searchText" /></label>
 
                     </div>
 
-
-                    <div class="list-group row" ng-show="aktivno==1">
-                        <div class="list-group-item col-md-12 head">
-                            <div class="col-md-4">NAZIV: </div>
-                            <div class="col-md-4"> ADRESA: </div>
-                            <div class="col-md-2"> UDALJENOST (km): </div>
-                        </div>
-
-                        <div class="list-group-item col-md-10" ng-repeat="restoran in nadeniRestorani | filter:searchText ">
-                            <div class="col-md-4"><a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></div>
-                            <div class="col-md-4">{{ restoran.adresa }}</div>
-                            <div class="col-md-2">{{ dest_udalj[restoran.id] }}</div>
-                        </div>
+                    <div class="list-group-item col-md-12 head">
+                        <div class="col-md-4"> NAZIV: </div>
+                        <div class="col-md-4"> ADRESA: </div>
+                        <div class="col-md-4"> UDALJENOST (km): </div>
                     </div>
+
+                    <div class="list-group-item col-md-10" ng-repeat="restoran in nadeniRestorani | filter:searchText ">
+                        <div class="col-md-4"><a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></div>
+                        <div class="col-md-5">{{ restoran.adresa }}</div>
+                        <div class="col-md-1">{{ dest_udalj[restoran.id] }}</div>
+                    </div>
+                </div>
+
+                <div>
                     <div id="output" ng-hide="!authentication.isAuth" ng-show="aktivno==1"></div>
                     <div id="map" ng-hide="!authentication.isAuth" ng-show="aktivno==1"></div>
                 </div>
 
+            </div>
 
-                <div ng-show="aktivno==1" class="search" ng-hide="!authentication.isAuth">
+            
 
-                    <label class="link" ng-show="aktivno==1"> TRAŽILICA <input type="search" placeholder="pretraga..." ng-model="searchText" /></label>
-                   
 
+            <div class="container-fluid" ng-hide="authentication.isAuth">
+                
+                    <div class="row">
+                        <div class="row">
+                          
+                            <div class="col-md-8">
+                                <!-- Controls -->
+                                
+                                <div class="controls pull-right hidden-xs">
+                                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+                                       data-slide="prev">PREV</a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+                                                                data-slide="next">NEXT</a>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+
+                        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://www.jutarnji.hr/multimedia/archive/00236/bijeli_bakalar_236272S1.png" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                               RESTORAN
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                ADRESA
+                                                            </h5>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://kolaci.eu/wp-content/uploads/2011/11/kolac-s-nugatom-610x300.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                               RESTORAN
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                ADRESA
+                                                            </h5>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                  
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://www.lepotaizdravlje.rs/wp-content/uploads/2013/06/brza-hrana.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                                R3
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                A3
+                                                            </h5>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_myGjbInhbDSwO46wMaOEN1CJ1eXS0yifOgrQzez5YqIKo0rSXQ" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                                R4
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                A4
+                                                            </h5>
+                                                        </div>
+                                                     
+                                                    </div>
+                                                   
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://www.piazzadeifiori.com/wp-content/uploads/2014/08/hrana_11.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                               R5
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                               A5
+                                                            </h5>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                  
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://4.bp.blogspot.com/-RaJcKEfxh5U/T3WgXtrCRyI/AAAAAAAAIqY/RonMqbisASs/s1600/metalac-kuvano+jelo_07.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                                R6
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                A6
+                                                            </h5>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="https://zlatnavrata.fullbusiness.com/public/uploads/ckeditor/user/818/7letmh-IMG_0098-1287936427.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                               R7
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                A7
+                                                            </h5>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                  
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="col-item">
+                                                <div class="photo">
+                                                    <img src="http://www.cef.hr/wp-content/uploads/2014/03/admin/jela-s-rostilja.jpg" class="img-responsive" alt="a" />
+                                                </div>
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="price col-md-6">
+                                                            <h5>
+                                                                R8
+                                                            </h5>
+                                                            <h5 class="price-text-color">
+                                                                A8
+                                                            </h5>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                  
+                                                    <div class="clearfix">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     
-                </div>
-
-                <div class="col-md-12 container lista_rest" align="center" ng-hide="authentication.isAuth">
-
-                    <div class="list-group row">
-                        <div class="list-group-item col-md-10">
-                            <div class="col-md-6">NAZIV: </div>
-                            <div class="col-md-6"> ADRESA: </div>
-                        </div>
-
-                        <div class="list-group-item col-md-10" ng-repeat="item in restorani | limitTo: restorani.length : restorani.length /2">
-                            <div class="col-md-6">{{item.naziv}}</div>
-                            <div class="col-md-6"> {{item.adresa}} </div>
-                        </div>
                     </div>
-
                 </div>
-            </div>
 
-
-
-
-            <div class="col-md-8" align="center" ng-show="activetab == 2">
-                <div class="container tabovi" align="left">
-                    bla
-
-                </div>
-            </div>
-        </div>
-
-
-
-
+            <div class="col-md-12 navbar-fixed-top" id="section" ng-hide="authentication.isAuth"></div>
+             </div>
+       
     </div>
 </div>
-

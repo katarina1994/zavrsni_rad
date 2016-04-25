@@ -200,6 +200,8 @@
     <Content Include="App\templates\register.html" />
     <Content Include="App\templates\restoran.html" />
     <Content Include="App\templates\voditelj.html" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -208,7 +210,10 @@
     <Content Include="data.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
-    <Content Include="Infrastructure\images\food.png" />
+    <Content Include="images\food.png" />
+    <Content Include="images\Katarina.png" />
+    <Content Include="images\katarina_a.png" />
+    <Content Include="images\katarina_c.png" />
     <Content Include="Scripts\angular-local-storage.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -216,12 +221,13 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
+    <Content Include="fonts\Rabbit On The Moon.ttf" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

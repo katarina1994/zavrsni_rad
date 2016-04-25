@@ -11,6 +11,26 @@
     var my_latitude = null;
     var my_longitude = null;
 
+    $scope.myInterval = 3000;
+    $scope.slides = [
+      
+      {
+          image: 'http://lorempixel.com/400/200/food'
+      },
+      {
+          image: 'http://lorempixel.com/400/200/sports'
+      },
+      {
+          image: 'http://lorempixel.com/400/200/people'
+      }
+    ];
+
+    $scope.getSecondIndex = function (index) {
+        if (index - slides.length >= 0)
+            return index - slides.length;
+        else
+            return index;
+    }
 
 
     function getData() {
@@ -81,7 +101,7 @@
                             for (j = 0 ; j < results.length; j++) {
                                 $scope.dest_udalj.push(parseFloat(results[j].distance.value / 1000));
                                 if ((results[j].distance.value / 1000) < 1) {
-                                    $scope.dest_udalj.push((results[j].distance.value / 1000));
+                                    $scope.dest_udalj.push((parseFloat(results[j].distance.value / 1000)));
                                 }
                             }
 
