@@ -61,7 +61,7 @@
                                 <div class="controls pull-right hidden-xs">
                                     <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
                                        data-slide="prev">PREV</a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
-                                                                data-slide="next">NEXT</a>
+                                        data-slide="next">NEXT</a>
                                 </div>
                                
                             </div>
@@ -73,19 +73,19 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="($index < 4)">
                                             <div class="col-item">
                                                 <div class="photo">
-                                                    <img src="http://www.jutarnji.hr/multimedia/archive/00236/bijeli_bakalar_236272S1.png" class="img-responsive" alt="a" />
+                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
                                                 </div>
                                                 <div class="info">
                                                     <div class="row">
                                                         <div class="price col-md-6">
                                                             <h5>
-                                                               RESTORAN
+                                                               {{rest.naziv}}
                                                             </h5>
                                                             <h5 class="price-text-color">
-                                                                ADRESA
+                                                                 {{rest.adresa}}
                                                             </h5>
                                                         </div>
                                                         
@@ -96,92 +96,24 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img src="http://kolaci.eu/wp-content/uploads/2011/11/kolac-s-nugatom-610x300.jpg" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                               RESTORAN
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                ADRESA
-                                                            </h5>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                  
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img src="http://www.lepotaizdravlje.rs/wp-content/uploads/2013/06/brza-hrana.jpg" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                                R3
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                A3
-                                                            </h5>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                    
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_myGjbInhbDSwO46wMaOEN1CJ1eXS0yifOgrQzez5YqIKo0rSXQ" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                                R4
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                A4
-                                                            </h5>
-                                                        </div>
-                                                     
-                                                    </div>
-                                                   
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 4) && ($index < 8))">
                                             <div class="col-item">
                                                 <div class="photo">
-                                                    <img src="http://www.piazzadeifiori.com/wp-content/uploads/2014/08/hrana_11.jpg" class="img-responsive" alt="a" />
+                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
                                                 </div>
                                                 <div class="info">
                                                     <div class="row">
                                                         <div class="price col-md-6">
                                                             <h5>
-                                                               R5
+                                                               {{rest.naziv}}
                                                             </h5>
                                                             <h5 class="price-text-color">
-                                                               A5
+                                                               {{rest.adresa}}
                                                             </h5>
                                                         </div>
                                                        
@@ -192,75 +124,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 8) && ($index < 12))">
                                             <div class="col-item">
                                                 <div class="photo">
-                                                    <img src="http://4.bp.blogspot.com/-RaJcKEfxh5U/T3WgXtrCRyI/AAAAAAAAIqY/RonMqbisASs/s1600/metalac-kuvano+jelo_07.jpg" class="img-responsive" alt="a" />
+                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
                                                 </div>
                                                 <div class="info">
                                                     <div class="row">
                                                         <div class="price col-md-6">
                                                             <h5>
-                                                                R6
+                                                                {{rest.naziv}}
                                                             </h5>
                                                             <h5 class="price-text-color">
-                                                                A6
+                                                                {{rest.adresa}}
                                                             </h5>
                                                         </div>
-                                                        
+
                                                     </div>
-                                                    
+
                                                     <div class="clearfix">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img src="https://zlatnavrata.fullbusiness.com/public/uploads/ckeditor/user/818/7letmh-IMG_0098-1287936427.jpg" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                               R7
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                A7
-                                                            </h5>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                  
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img src="http://www.cef.hr/wp-content/uploads/2014/03/admin/jela-s-rostilja.jpg" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                                R8
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                A8
-                                                            </h5>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                  
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
