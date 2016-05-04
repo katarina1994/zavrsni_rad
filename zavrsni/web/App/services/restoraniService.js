@@ -6,8 +6,8 @@
         return $http.get('api/Restorani');
     }
 
-    restoraniService.getRestoraniByDistance = function (id) {
-        return $http.get('api/Restorani/GetRestoraniByDistance/'+id);
+    restoraniService.getRestoraniByID = function (id) {
+        return $http.get('api/Restorani/GetRestoraniByID/'+id);
     }
 
   

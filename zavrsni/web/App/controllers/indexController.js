@@ -1,4 +1,4 @@
-﻿web.controller('indexController', ['$scope', '$window', 'restoraniService', 'jelaService', '$route', function ($scope, $window, restoraniService, jelaService, $route) {
+﻿web.controller('indexController', ['$scope', '$window', 'restoraniService', 'userService', 'jelaService', '$route', function ($scope, $window, restoraniService, userService, jelaService, $route) {
 
     var res = new Array();
     $scope.restorani = null;
@@ -10,10 +10,10 @@
     var spremi = new Array();
     var my_latitude = null;
     var my_longitude = null;
-   
+
     $scope.myInterval = 4000;
     $scope.slides = [
-      
+
       {
           image: "http://www.yellowpages.rs/komitent_multimedia/3000/3069/slike/picerija_atos_-_pizza_trattoria.jpg"
       },
@@ -21,7 +21,7 @@
           image: "http://www.piazzadeifiori.com/wp-content/uploads/2014/08/hrana_11.jpg"
       },
       {
-          image: "http://4.bp.blogspot.com/-RaJcKEfxh5U/T3WgXtrCRyI/AAAAAAAAIqY/RonMqbisASs/s1600/metalac-kuvano+jelo_07.jpg" 
+          image: "http://4.bp.blogspot.com/-RaJcKEfxh5U/T3WgXtrCRyI/AAAAAAAAIqY/RonMqbisASs/s1600/metalac-kuvano+jelo_07.jpg"
       },
       {
           image: "http://www.cef.hr/wp-content/uploads/2014/03/admin/jela-s-rostilja.jpg"
@@ -68,7 +68,6 @@
     }
     getData();
 
-   
 
     $scope.contacts = [];
     $scope.address = '';
@@ -118,7 +117,7 @@
                     } else {
                         var originList = response.originAddresses;
                         var destinationList = response.destinationAddresses;
-
+                        $scope.address = originList[0];
                         localStorage["moja_adresa"] = JSON.stringify(originList);
                         $scope.dest_udalj = new Array;
                         var j = 0;
@@ -134,7 +133,7 @@
 
                             for (var k = 0; k < $scope.dest_udalj.length; k++) {
 
-                                restoraniService.getRestoraniByDistance(k).then(function (result) {
+                                restoraniService.getRestoraniByID(k).then(function (result) {
                                     var rest = result.data;
                                     angular.forEach(rest, function (value, key) {
                                         if (value.radijusDostave >= $scope.dest_udalj[(value.id - 1)]) {
@@ -163,7 +162,7 @@
 
         });
 
-        
+
         $scope.contacts = [];
         $scope.nadeniRestorani = [];
         res = [];
@@ -232,4 +231,14 @@
         markersArray = [];
     }
 
+    
+    moja_adresa = null;
+    moja_adresa = JSON.parse(localStorage.getItem("moja_adresa"));
+    userService.model.adresa = moja_adresa;
+   
+    $scope.address = userService.model.adresa[0];
+
+    localStorage["popis_restorana"] = JSON.stringify([]);
+    localStorage["moja_adresa"] = JSON.stringify([]);
+    
 }]);

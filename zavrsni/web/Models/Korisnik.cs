@@ -18,10 +18,11 @@ namespace web.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        //public String Email { get; set; }
+        
         public String Ime { get; set; }
         public String Prezime { get; set; }
         public int OvlastID { get; set; }
- 
+        public int RestID { get; set; }
+
     }
 }

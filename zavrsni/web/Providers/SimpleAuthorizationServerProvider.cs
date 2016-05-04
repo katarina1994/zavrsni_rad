@@ -50,7 +50,8 @@ namespace web.Providers
                     { "ime", user.Ime },
                     { "prezime", user.Prezime },
                     { "ovlastID", user.OvlastID.ToString() },
-                  
+                    { "restID", user.RestID.ToString() },
+
                 });
          
             var ticket = new AuthenticationTicket(identity, props);

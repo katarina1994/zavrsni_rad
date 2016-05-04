@@ -1,3 +1,7 @@
-﻿web.controller('voditeljController', ['$scope', function ($scope) {
+﻿web.controller('voditeljController', ['$scope', 'authService', function ($scope, authService) {
+
+
+    $scope.authentication = authService.authentication;
+   
 
 }]);

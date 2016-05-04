@@ -1,12 +1,11 @@
 ﻿<div class="container">
 
-    <div class="col-md-12 left">
-
+    <div class="col-md-12 left">      
         <div class="col-md-12">
             <div class="container left" align="left" ng-hide="!authentication.isAuth">
                 <div class="botuni">
                     <div class="col-md-10">
-                        <label>UPIŠITE SVOJU ADRESU</label>
+                        <label> UPIŠITE SVOJU ADRESU </label>
                         <input placeholder="adresa" ng-model="address" class="form-control">
                     </div>
 
@@ -20,23 +19,25 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="list-group row tablica" ng-show="aktivno==1">
                     <div class="pretraga">
-                        <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="searchText" /></label>
+                        <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="search" /></label>
 
                     </div>
 
                     <div class="list-group-item col-md-12 head">
-                        <div class="col-md-4"> NAZIV: </div>
+                        <div class="col-md-3"> NAZIV: </div>
                         <div class="col-md-4"> ADRESA: </div>
-                        <div class="col-md-4"> UDALJENOST (km): </div>
+                        <div class="col-md-3"> UDALJENOST DO RESTORANA U km: </div>
+                        <div class="col-md-2"> RADNO VRIJEME: </div>
                     </div>
 
-                    <div class="list-group-item col-md-10" ng-repeat="restoran in nadeniRestorani | filter:searchText ">
-                        <div class="col-md-4"><a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></div>
-                        <div class="col-md-5">{{ restoran.adresa }}</div>
-                        <div class="col-md-1">{{ dest_udalj[restoran.id] }}</div>
+                    <div class="list-group-item col-md-12" ng-repeat="restoran in nadeniRestorani | filter:search ">
+                        <div class="col-md-3"><a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></div>
+                        <div class="col-md-4">{{ restoran.adresa }}</div>
+                        <div class="col-md-3">{{ dest_udalj[restoran.id] }}</div>
+                        <div class="col-md-2">{{ restoran.vrijeme_otvaranja }} - {{restoran.vrijeme_zatvaranja}}</div>
                     </div>
                 </div>
 

@@ -1,12 +1,85 @@
 ﻿<div class="container jela" id="parent">
-    <ul class="restorani list-group">
-        <li class="list-group-item clearfix" ng-repeat="jelo in jela"><span class="label label-default label-pill pull-xs-right">{{jelo.cijena}} kn</span>
-              <a class= "jedno_jelo btn" data-parent="#parent" data-toggle="collapse" data-target="#collapse1">{{jelo.naziv_jelo}}</a>
-        </li>
-    </ul>
-    <div id="collapse1" class="collapse restorani">
-        Tu su sastojci :D
+    <label class="link col-md-4 podaci_rest">{{restoran[0].naziv}}</label>
+    <label class="link col-md-4 podaci_rest" ng-hide="otvoren == 0"> RESTORAN JE OTVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
+    <label class="link col-md-4 podaci_rest" ng-hide="otvoren == 1"> RESTORAN JE ZATVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
+
+
+    <label class="link col-md-4" > TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="search" /></label>    
+    
+    <table class="table table-hover table-bordered">
+        <tr class="well">
+            <th>Jelo</th>
+            <th>Detalji jela</th>
+            <th>Cijena jela</th>
+            <th> Stavi u moju košaricu</th>
+        </tr>
+        
+        <tr  ng-repeat="jelo in jela | filter:search" >
+
+            <td class="col-md-2">             
+                <div class="panel-group" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-title">
+                           {{jelo.naziv_jelo}}
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body" >                               
+                                      <div>KATEGORIJA JELA: <br /> {{tip[$index][0].naziv_tipa}} </div>                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+            <td class="col-sm-1"> {{jelo.kratki_opis}}</td>
+            <td class="col-xs-1"> {{jelo.cijena}} kn </td>
+            <td class="col-sm-1">
+                <button class="col-md-6 btn btn-info" ng-click="addItem(jelo.id, jelo.naziv_jelo, jelo.cijena, 1)"> stavi u košaricu </button> 
+                <br />
+                <br />       
+                <button class="col-md-6 btn btn-info" ng-disabled="klik[jelo.id] == null" ng-click="removeItem(jelo.id, jelo.naziv_jelo, jelo.cijena, 1)"> ukloni iz košarice </button>
+            </td>
+           
+        </tr>
+
+
+    </table>
+
+
+
+
+
+
+    <div class="row-fluid">
+        <div ng-hide="prazna_kosarica == 1">
+            <h>Vaša košarica je prazna !</h>
+
+        </div>
+        <table class="table table-condensed">
+            <tr class="well">
+                <th>Naručena jela</th>
+                <th>Cijena narudžbe</th>
+                <th>Broj porcija</th>
+            </tr>
+
+
+            <tr ng-hide="prazna_kosarica == 0" ng-repeat="jelo in jela">
+                <td ng-hide="kosarica[jelo.id][0] == null">{{kosarica[jelo.id][0]}}  </td>
+                <td ng-hide="kosarica[jelo.id][1] == null"> {{kosarica[jelo.id][1]}} kn </td>
+                <td ng-hide="kosarica[jelo.id][2] == null"> {{kosarica[jelo.id][2]}} porcija/e </td>
+            </tr>
+            <tr>
+                <td>UKUPNO</td>
+                <td>{{ukupna_cijena}} kn</td>
+                <td>{{ukupna_kolicina}} porcija/e </td>
+            </tr>
+        </table>
+
+
+
+
     </div>
+
 </div>
 
 

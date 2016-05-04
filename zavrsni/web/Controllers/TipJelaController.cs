@@ -11,57 +11,56 @@ using System.Web.Http.Description;
 using web.DAL;
 using web.Models;
 
-
 namespace web.Controllers
 {
-    [RoutePrefix("api/Restorani")]
-    public class RestoraniController : ApiController
+
+    [RoutePrefix("api/TipJela")]
+    public class TipJelaController : ApiController
     {
         private DatabaseContext db = new DatabaseContext();
 
-        // GET: api/Restorani
-        public IQueryable<Restoran> GetRestorani()
+        // GET: api/TipJela
+        public IQueryable<TipJela> GetTipovi()
         {
-            return db.Restorani;
+            return db.Tipovi;
         }
 
 
         [AcceptVerbs("GET")]
-        [Route("GetRestoraniByID/{id:int}")]
-        public IQueryable<Restoran> GetRestoraniByID(int id)
+        [Route("GetTipJelaByID/{id:int}")]
+        public IQueryable<TipJela> GetTipJelaByID(int id)
         {
-            return db.Restorani.Where(s => s.ID == id);
+            return db.Tipovi.Where(s => s.ID == id);
         }
 
-
-        // GET: api/Restorani/5
-        [ResponseType(typeof(Restoran))]
-        public IHttpActionResult GetRestoran(int id)
+        // GET: api/TipJela/5
+        [ResponseType(typeof(TipJela))]
+        public IHttpActionResult GetTipJela(int id)
         {
-            Restoran restoran = db.Restorani.Find(id);
-            if (restoran == null)
+            TipJela tipJela = db.Tipovi.Find(id);
+            if (tipJela == null)
             {
                 return NotFound();
             }
 
-            return Ok(restoran);
+            return Ok(tipJela);
         }
 
-        // PUT: api/Restorani/5
+        // PUT: api/TipJela/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRestoran(int id, Restoran restoran)
+        public IHttpActionResult PutTipJela(int id, TipJela tipJela)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != restoran.ID)
+            if (id != tipJela.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(restoran).State = EntityState.Modified;
+            db.Entry(tipJela).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +68,7 @@ namespace web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RestoranExists(id))
+                if (!TipJelaExists(id))
                 {
                     return NotFound();
                 }
@@ -82,35 +81,35 @@ namespace web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Restorani
-        [ResponseType(typeof(Restoran))]
-        public IHttpActionResult PostRestoran(Restoran restoran)
+        // POST: api/TipJela
+        [ResponseType(typeof(TipJela))]
+        public IHttpActionResult PostTipJela(TipJela tipJela)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Restorani.Add(restoran);
+            db.Tipovi.Add(tipJela);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = restoran.ID }, restoran);
+            return CreatedAtRoute("DefaultApi", new { id = tipJela.ID }, tipJela);
         }
 
-        // DELETE: api/Restorani/5
-        [ResponseType(typeof(Restoran))]
-        public IHttpActionResult DeleteRestoran(int id)
+        // DELETE: api/TipJela/5
+        [ResponseType(typeof(TipJela))]
+        public IHttpActionResult DeleteTipJela(int id)
         {
-            Restoran restoran = db.Restorani.Find(id);
-            if (restoran == null)
+            TipJela tipJela = db.Tipovi.Find(id);
+            if (tipJela == null)
             {
                 return NotFound();
             }
 
-            db.Restorani.Remove(restoran);
+            db.Tipovi.Remove(tipJela);
             db.SaveChanges();
 
-            return Ok(restoran);
+            return Ok(tipJela);
         }
 
         protected override void Dispose(bool disposing)
@@ -122,9 +121,9 @@ namespace web.Controllers
             base.Dispose(disposing);
         }
 
-        private bool RestoranExists(int id)
+        private bool TipJelaExists(int id)
         {
-            return db.Restorani.Count(e => e.ID == id) > 0;
+            return db.Tipovi.Count(e => e.ID == id) > 0;
         }
     }
 }

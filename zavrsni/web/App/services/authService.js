@@ -10,7 +10,8 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
         id: "",
         ime: "",
         prezime: "",
-        ovlastID: ""
+        ovlastID: "",
+        restID: ""
     };
 
     var _saveRegistration = function (registration) {
@@ -39,6 +40,7 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
             _authentication.ime = response.ime;
             _authentication.prezime = response.prezime;
             _authentication.ovlastID = response.ovlastID;
+            _authentication.restID = response.restID;
 
             deferred.resolve(response);
 
@@ -61,6 +63,7 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
         _authentication.ime = "";
         _authentication.prezime = "";
         _authentication.ovlastID = "";
+        _authentication.restID = "";
     };
 
     var _fillAuthData = function () {

@@ -22,7 +22,8 @@ namespace web.Models
         public String Adresa { get; set; }
         public int RadijusDostave { get; set; }
         public DbGeography Location { get; set; }
-  
+        public int Vrijeme_otvaranja { get; set; }
+        public int Vrijeme_zatvaranja { get; set; }
 
         /*public Restoran(params string[] podaci)
                 {
