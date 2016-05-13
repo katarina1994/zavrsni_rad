@@ -1046,6 +1046,7 @@ namespace web.DAL
                 Prezime = "vod_prezNaziv17",
                 OvlastID = 3,
                 RestID = 17
+                
             };
             _userManager.Create(voditelj17, voditelj17.Password);
 

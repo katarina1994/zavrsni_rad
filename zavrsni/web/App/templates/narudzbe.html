@@ -1,0 +1,48 @@
+﻿<div class="container">
+    <table class="table table-hover table-bordered">
+        <tr class="well">
+            <th>Detalji narudžbe</th>
+            <th>Cijena jela</th>
+            <th>Potvrdi narudzbu</th>
+
+        </tr>
+
+        <tr ng-repeat="nar in narudzba | orderBy: jelo.tipJelaID"  ng-hide="id != nar.restoranID">
+
+            <td class="col-md-1">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-title">
+                            NAZIV JELA: {{jelo[$index].naziv_jelo}}
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div>VRIJEME NARUDŽBE: {{nar.vrijeme}} <br /> MAIL: {{nar.mail}} <br /> ADRESA: {{nar.adresa}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+            <td class="col-xs-1">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-title"> 
+                            CIJENA JELA PO PORCIJI {{jelo[$index].cijena}} kn
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div>NARUČENO PORCIJA: {{nar.kolicina}} porcija/e <br /> UKUPNA CIJENA: {{nar.kolicina*jelo[$index].cijena}} kn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="col-xs-1"> <button class="col-md-9 btn btn-info" ng-click="posalji_mail()"> pošalji mail potvrde </button> </td>
+
+        </tr>
+
+
+    </table>
+
+</div>

@@ -16,8 +16,8 @@ namespace web.DAL
         public DbSet<Ovlast> Ovlasti { get; set; }
         public DbSet<Restoran> Restorani { get; set; }
         public DbSet<Jelo> Jela { get; set; }
-        public DbSet<Sastojak> Sastojci { get; set; }
         public DbSet<TipJela> Tipovi { get; set; }
+        public DbSet<OdabranoJelo> OdabranaJela { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

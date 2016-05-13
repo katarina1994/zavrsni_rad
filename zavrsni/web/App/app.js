@@ -1,4 +1,4 @@
-﻿var web = angular.module('web', ['ngRoute', 'ngCookies', 'LocalStorageModule', 'ui.bootstrap']);
+﻿var web = angular.module('web', ['ngRoute', 'ngCookies', 'LocalStorageModule', 'ui.bootstrap', 'ngDialog']);
 
 web.run(function ($rootScope) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
@@ -39,6 +39,9 @@ web.config(['$routeProvider', function ($routeProvider) {
     }).when('/restoran', {
         controller: 'restoranController',
         templateUrl: '/App/templates/restoran.html'
+    }).when('/narudzbe', {
+        controller: 'narudzbeController',
+        templateUrl: '/App/templates/narudzbe.html'
     }).otherwise({
         redirectTo: '/index'
     });

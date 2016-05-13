@@ -1,12 +1,12 @@
 ﻿<div class="container">
 
-    <div class="col-md-12 left">      
+    <div class="col-md-12 left">
         <div class="col-md-12">
-            <div class="container left" align="left" ng-hide="!authentication.isAuth">
+            <div class="container left" align="left" ng-hide="authentication.ovlastID !=2">
                 <div class="botuni">
                     <div class="col-md-10">
                         <label> UPIŠITE SVOJU ADRESU </label>
-                        <input placeholder="adresa" ng-model="address" class="form-control">
+                        <input placeholder="adresa" ng-model="address" class="form-control"/>
                     </div>
 
                     <div class="dugmici">
@@ -19,152 +19,165 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="list-group row tablica" ng-show="aktivno==1">
-                    <div class="pretraga">
-                        <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="search" /></label>
 
-                    </div>
+                <div class="pretraga">
+                    <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="search" /></label>
 
-                    <div class="list-group-item col-md-12 head">
-                        <div class="col-md-3"> NAZIV: </div>
-                        <div class="col-md-4"> ADRESA: </div>
-                        <div class="col-md-3"> UDALJENOST DO RESTORANA U km: </div>
-                        <div class="col-md-2"> RADNO VRIJEME: </div>
-                    </div>
-
-                    <div class="list-group-item col-md-12" ng-repeat="restoran in nadeniRestorani | filter:search ">
-                        <div class="col-md-3"><a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)"> {{ restoran.naziv }} </a></div>
-                        <div class="col-md-4">{{ restoran.adresa }}</div>
-                        <div class="col-md-3">{{ dest_udalj[restoran.id] }}</div>
-                        <div class="col-md-2">{{ restoran.vrijeme_otvaranja }} - {{restoran.vrijeme_zatvaranja}}</div>
-                    </div>
                 </div>
 
+                <table class="table table-hover table-bordered tablica" ng-show="aktivno==1">
+                    <tr class="well">
+                        <th>NAZIV</th>
+                        <th>ADRESA</th>
+                        <th>UDALJENOST DO RESTORANA (km)</th>
+                        <th>RADNO VRIJEME</th>
+                    </tr>
+
+                    <tr ng-repeat="restoran in nadeniRestorani | filter:search">
+
+                        <td class="col-md-2">
+                            <a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)">
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading panel-title">
+                                            {{restoran.naziv}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
+                        <td class="col-sm-1"> {{restoran.adresa}}</td>
+                        <td class="col-xs-1"> {{ dest_udalj[restoran.id] }} </td>
+                        <td class="col-sm-1">{{ restoran.vrijeme_otvaranja }} h - {{restoran.vrijeme_zatvaranja}} h</td>
+
+
+                    </tr>
+
+
+                </table>
+
                 <div>
-                    <div id="output" ng-hide="!authentication.isAuth" ng-show="aktivno==1"></div>
-                    <div id="map" ng-hide="!authentication.isAuth" ng-show="aktivno==1"></div>
+                    <div id="output"  ng-show="aktivno==1"></div>
+                    <div id="map"  ng-show="aktivno==1"></div>
                 </div>
 
             </div>
 
-            
+            <div class="container-fluid" ng-hide="authentication.ovlastID == 2">
 
-
-            <div class="container-fluid" ng-hide="authentication.isAuth">
-                
+                <div class="row">
                     <div class="row">
-                        <div class="row">
-                          
-                            <div class="col-md-8">
-                                <!-- Controls -->
-                                
-                                <div class="controls pull-right hidden-xs">
-                                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
-                                       data-slide="prev">PREV</a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
-                                        data-slide="next">NEXT</a>
-                                </div>
-                               
+
+                        <div class="col-md-8">
+                            <!-- Controls -->
+
+                            <div class="controls pull-right hidden-xs">
+                                <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+                                   data-slide="prev">PREV</a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+                                                                data-slide="next">NEXT</a>
                             </div>
+
                         </div>
-
-
-                        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="row">
-                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="($index < 4)">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                               {{rest.naziv}}
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                 {{rest.adresa}}
-                                                            </h5>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 4) && ($index < 8))">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                               {{rest.naziv}}
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                               {{rest.adresa}}
-                                                            </h5>
-                                                        </div>
-                                                       
-                                                    </div>
-                                                  
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 8) && ($index < 12))">
-                                            <div class="col-item">
-                                                <div class="photo">
-                                                    <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" />
-                                                </div>
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="price col-md-6">
-                                                            <h5>
-                                                                {{rest.naziv}}
-                                                            </h5>
-                                                            <h5 class="price-text-color">
-                                                                {{rest.adresa}}
-                                                            </h5>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="clearfix">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
                     </div>
+
+
+                    <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="($index < 4)">
+                                        <div class="col-item">
+                                            <div class="photo">
+
+                                                <a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(rest.id)">  <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" /></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="price col-md-6">
+                                                        <h5>
+                                                            {{ rest.naziv }}
+                                                        </h5>
+                                                        <h5 class="price-text-color">
+                                                            {{rest.adresa}}
+                                                        </h5>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 4) && ($index < 8))">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(rest.id)">  <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" /></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="price col-md-6">
+                                                        <h5>
+                                                            {{rest.naziv}}
+                                                        </h5>
+                                                        <h5 class="price-text-color">
+                                                            {{rest.adresa}}
+                                                        </h5>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-3" ng-repeat="rest in restorani" ng-if="( ($index >= 8) && ($index < 12))">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(rest.id)">  <img ng-src="{{slides[$index].image}}" class="img-responsive" alt="a" /></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="price col-md-6">
+                                                        <h5>
+                                                            {{rest.naziv}}
+                                                        </h5>
+                                                        <h5 class="price-text-color">
+                                                            {{rest.adresa}}
+                                                        </h5>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
             <div class="col-md-12 navbar-fixed-top" id="section" ng-hide="authentication.isAuth"></div>
-             </div>
-       
+        </div>
+
     </div>
 </div>

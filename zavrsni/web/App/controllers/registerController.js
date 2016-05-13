@@ -35,8 +35,8 @@
                 );
 
                 $scope.savedSuccessfully = true;
-                startTimer(response.data);
-                alert("Vaš profil uspješno je registriran. Pritisnite u redu i bit ćete preusmjereni na " + response.data + " stranicu.");
+                startTimer("index");
+                alert("Vaš profil uspješno je registriran. Pritisnite u redu i bit ćete prijavljeni i preusmjereni na naslovnu stranicu.");
                 
 
             }, function (response) {
@@ -51,7 +51,7 @@
             );
       
     };
-
+   
     var startTimer = function (path) {
         var timer = $timeout(function () {
             $timeout.cancel(timer);

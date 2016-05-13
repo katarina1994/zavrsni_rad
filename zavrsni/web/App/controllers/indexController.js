@@ -15,40 +15,40 @@
     $scope.slides = [
 
       {
-          image: "http://www.yellowpages.rs/komitent_multimedia/3000/3069/slike/picerija_atos_-_pizza_trattoria.jpg"
+          image: "/images/image1.jpg"
       },
       {
-          image: "http://www.piazzadeifiori.com/wp-content/uploads/2014/08/hrana_11.jpg"
+          image: "/images/image2.jpg"
       },
       {
-          image: "http://4.bp.blogspot.com/-RaJcKEfxh5U/T3WgXtrCRyI/AAAAAAAAIqY/RonMqbisASs/s1600/metalac-kuvano+jelo_07.jpg"
+          image: "/images/image3.jpg"
       },
       {
-          image: "http://www.cef.hr/wp-content/uploads/2014/03/admin/jela-s-rostilja.jpg"
+          image: "/images/image4.jpg"
       },
       {
-          image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS_myGjbInhbDSwO46wMaOEN1CJ1eXS0yifOgrQzez5YqIKo0rSXQ"
+          image: "/images/image5.jpg"
       },
       {
-          image: "http://kolaci.eu/wp-content/uploads/2011/11/kolac-s-nugatom-610x300.jpg"
+          image: "/images/image6.jpg"
       },
       {
-          image: "http://tub.tubgit.com/reimg/resize-img.php?src=http://photos.up-wallpaper.com/images248/huv042xintk.jpg&h=450&w=728"
+          image: "/images/image7.jpg"
       },
       {
-          image: "http://www.present.rs/sastav/kolaci/deesertni_kuvar017ss.jpg"
+          image: "/images/image8.jpg"
       },
       {
-          image: "http://www.si-market.si/modules/store/uploads/strip_steak2.jpg"
+          image: "/images/image9.jpg"
       },
       {
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0l2wt9dOPpwAZzgxpH8-URquhYzMrTBgBI_QdjKwF8JSVam9CqA"
+          image: "/images/image10.jpg"
       },
       {
-          image: "http://www.yellowpages.rs/komitent_multimedia/32300/32393/slike/restoran_saran_-_domaca_kuhinja.jpg"
+          image: "/images/image11.jpg"
       },
       {
-          image: "http://glas-regije.com/wp-content/fotosiupload/2015/02/jela-od-ribe-post.jpg"
+          image: "/images/image12.jpg"
       }
     ];
 
@@ -231,14 +231,14 @@
         markersArray = [];
     }
 
-    
+
     moja_adresa = null;
     moja_adresa = JSON.parse(localStorage.getItem("moja_adresa"));
     userService.model.adresa = moja_adresa;
-   
-    $scope.address = userService.model.adresa[0];
-
+    if (userService.model.adresa[0] != null) {
+        $scope.address = userService.model.adresa[0];
+    }
     localStorage["popis_restorana"] = JSON.stringify([]);
     localStorage["moja_adresa"] = JSON.stringify([]);
-    
+
 }]);

@@ -1,5 +1,88 @@
-﻿<div>
+﻿<div class="container voditelj">
+    
+   
+    
+    
+    <div class="container col-md-6">
+        <form name="myForm" class="col-md-8">
 
-    {{authentication.restID}}
+            <input placeholder="id jela" ng-model="data.id" class="form-control col-md-6" />
+            <tt ng-hide="odabran_id != null">{{odabran_id = data.id}}</tt>
+
+            <input placeholder="naziv jela" ng-model="data.naziv" class="form-control col-md-6" />
+            <tt ng-hide="data.naziv != null">{{odabran_naziv = data.naziv}}</tt>
+
+            <input placeholder="cijena jela" ng-model="data.cijena" class="form-control col-md-6" />
+            <tt ng-hide="data.cijena != null">{{odabrana_cijena = data.cijena}}</tt>
+
+            <input placeholder="detalji jela" ng-model="data.detalji" class="form-control col-md-6" />
+            <tt ng-hide="data.detalji != null">{{odabrani_detalji = data.detalji}}</tt>
+
+
+            <div class="styled-select slate">
+                <select ng-model="data.tipid">
+                    <option value="">Molim odaberite kategoriju jela</option>
+                    <option ng-repeat="jelo in jelo_zapamti" value="{{jelo}}"> {{tip[jelo]}} </option>
+                </select>
+                <tt ng-hide="odabran_tipid != null">{{odabran_tipid = data.tipid}}</tt>
+
+            </div>
+        </form>
+        <div class="col-md-8">
+            <button class="col-md-6 btn btn-info" ng-click="dodaj_jelo(odabran_id, odabran_naziv, odabrana_cijena, odabrani_detalji, odabran_tipid, id_restorana)">
+                dodaj jelo u ponudu
+            </button>
+           
+            <div class="col-md-6 podaci_rest_vod">
+                <label class="ime">{{restoran[0].naziv}}</label>
+                <br />
+                <label class="adresa_vrijeme">{{restoran[0].adresa}}</label>
+                <br />
+                <label class="adresa_vrijeme">RADNO VRIJEME </label>
+                <label>({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-hover table-bordered tablica_voditelj ">
+            <tr class="well">
+                <th>Jelo</th>
+                <th>Detalji jela</th>
+                <th>Cijena jela</th>
+                <th>ID (jedinstvena oznaka) jela</th>
+                <th>Ukloni jelo iz ponude</th>
+            </tr>
+
+            <tr ng-repeat="jelo in jela | orderBy: jelo.tipJelaID">
+
+                <td class="col-md-6" ng-hide="uklonjeno_jelo == 1">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading panel-title">
+                                {{jelo.naziv_jelo}}
+                            </div>
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div>KATEGORIJA JELA: <br /> {{tip[jelo.tipJelaID]}} </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+                <td class="col-sm-3" ng-hide="uklonjeno_jelo == 1"> {{jelo.kratki_opis}}</td>
+                <td class="col-xs-1" ng-hide="uklonjeno_jelo == 1"> {{jelo.cijena}} kn </td>
+                <td class="col-xs-1" ng-hide="uklonjeno_jelo == 1"> {{jelo.id}} </td>
+                <td class="col-xs-3">
+                    <button class="col-md-12 btn btn-info" ng-click="izbrisi_jelo($index, jelo.id)"> ukloni jelo iz ponude </button>
+
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
 
 </div>
+

@@ -32,6 +32,14 @@ namespace web.Controllers
             return db.Jela.Where(s => s.RestoranID == id);
         }
 
+
+        [AcceptVerbs("GET")]
+        [Route("getJelaTheirID/{id:int}")]
+        public IQueryable<Jelo> getJelaTheirID(int id)
+        {
+            return db.Jela.Where(s => s.ID == id);
+        }
+
         // GET: api/Jelo/5
         [ResponseType(typeof(Jelo))]
         public IHttpActionResult GetJelo(int id)
@@ -80,23 +88,11 @@ namespace web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Jelo
-        [ResponseType(typeof(Jelo))]
-        public IHttpActionResult PostJelo(Jelo jelo)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Jela.Add(jelo);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = jelo.ID }, jelo);
-        }
+       
 
         // DELETE: api/Jelo/5
-        [ResponseType(typeof(Jelo))]
+        [AcceptVerbs("GET")]
+        [Route("DeleteJelo/{id:int}")]
         public IHttpActionResult DeleteJelo(int id)
         {
             Jelo jelo = db.Jela.Find(id);

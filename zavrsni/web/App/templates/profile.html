@@ -1,1 +1,104 @@
-﻿ha*?
+﻿<div class="container">
+<table class="table table-hover table-bordered">
+    <tr class="well">
+        <th>Detalji narudžbe</th>
+        <th>Cijena jela</th>
+        <th>Restoran</th>
+     
+    </tr>
+
+    <tr ng-repeat="jelo in narudzba | orderBy: jelo.tipJelaID">
+
+        <td class="col-md-1">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-title">
+                        NAZIV JELA: {{jelo[2]}}
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div>VRIJEME NARUDŽBE: <br /> {{jelo[0][1]}}.{{jelo[0][2]}}.{{jelo[0][0]}}, {{jelo[0][3]}}:{{jelo[0][4]}}:{{jelo[0][5]}}<br /> MOJA ADRESA:<br /> {{jelo[6]}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </td>
+        <td class="col-xs-1">
+          <div class="panel-group">
+             <div class="panel panel-default">
+                <div class="panel-heading panel-title">
+                      CIJENA JELA PO PORCIJI: {{jelo[3] / jelo[4]}} kn
+                </div>
+                <div class="panel">
+                    <div class="panel-body">
+                        <div>NARUČENO PORCIJA:{{jelo[4]}} porcija/e <br /> UKUPNA CIJENA: {{jelo[3]}} kn</div>
+                    </div>
+                </div>
+            </div>
+         </div> 
+        </td>
+        <td class="col-xs-1">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-title">
+                        {{restoran[0].naziv}}
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body">
+                            ADRESA RESTORANA: <br />{{jelo[7]}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+
+</table>
+
+
+    <fieldset class="registracija">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Ime</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-lg" id="name" placeholder="Ime" ng-model="ime" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="surname" class="col-sm-3 control-label">Prezime</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-lg" id="surname" placeholder="Prezime" ng-model="prezime" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Korisničko ime</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-lg" id="username" placeholder="Korisničko ime" ng-model="username" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">E-mail</label>
+            <div class="col-sm-7">
+                <input type="email" class="form-control input-lg" id="email" placeholder="E-mail" ng-model="email" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Lozinka</label>
+            <div class="col-sm-7">
+                <input type="password" class="form-control input-lg" id="password" placeholder="Lozinka" ng-model="lozinka" />
+
+            </div>
+        </div>
+    </fieldset>
+
+
+</div>

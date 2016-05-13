@@ -42,20 +42,21 @@
                    
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="confirmPassword" class="col-sm-3 control-label">Potvrdite lozinku</label>
                 <div class="col-sm-7">
                     <input type="password" class="form-control input-lg" id="confirmPassword" placeholder="Lozinka" ng-model="registration.confirmPassword" />
-                    
+
                 </div>
             </div>
+
+           
         </fieldset>
         <div class="control-group">
             <div class="controls">
                 <div id="alertID" class="alert alert-danger" style="display:none;"></div>
                 <div class="col-md-2 col-sm-2">
-                    <button class="btn btn-danger regButton" ng-click="register()"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Registrirajte se</button>
+                    <button class="btn btn-info regButton" ng-click="register()"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Registrirajte se</button>
                 </div>
                 <label>{{ message }}</label>
             </div>

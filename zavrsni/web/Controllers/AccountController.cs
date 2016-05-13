@@ -47,7 +47,7 @@ namespace web.Controllers
                     return Ok("voditelj");
 
                 default:
-                    return Ok();
+                    return Ok("");
             }
         }
 

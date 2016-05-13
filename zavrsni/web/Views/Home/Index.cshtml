@@ -15,7 +15,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular-cookies.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script> 
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.4.0/ui-bootstrap-tpls.min.js"></script>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.min.js"></script>
+    
     
 
 
@@ -30,6 +31,7 @@
                     <li><a ng-href="#/admin" ng-show="authentication.ovlastID == 1">Admin</a></li>
                     <li><a ng-href="#/profile" ng-show="authentication.ovlastID == 2">Profil</a></li>
                     <li><a ng-href="#/voditelj" ng-show="authentication.ovlastID == 3">Voditelj</a></li>
+                    <li><a ng-href="#/narudzbe" ng-show="authentication.ovlastID == 3">Narudžbe</a></li>
                 </ul>
             </div>
             
@@ -68,6 +70,9 @@
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/angular-local-storage.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="~/Scripts/ngDialog.js"></script>
+    <script src="~/Scripts/ngDialog.min.js"></script>
+    
     
 
     <script src="~/App/app.js"></script>
@@ -78,6 +83,7 @@
     <script src="~/App/controllers/adminController.js"></script>
     <script src="~/App/controllers/voditeljController.js"></script>
     <script src="~/App/controllers/restoranController.js"></script>
+    <script src="~/App/controllers/narudzbeController.js"></script>
     <script src="~/App/services/authService.js"></script>
     <script src="~/App/services/authInterceptorService.js"></script>
     <script src="~/App/services/restoraniService.js"></script>
@@ -85,8 +91,8 @@
     <script src="~/App/services/jela1Service.js"></script>
     <script src="~/App/services/tipJelaService.js"></script>
     <script src="~/App/services/userService.js"></script>
-    <script>
-
-    </script>
+    <script src="~/App/services/odabranoJeloService.js"></script>
+    <script src="~/App/services/odabranoJelo1Service.js"></script>
+ 
 </body>
 </html>
