@@ -76,6 +76,7 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
 
     }
 
+    _fillAuthData();
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;

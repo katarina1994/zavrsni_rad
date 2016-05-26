@@ -2,56 +2,44 @@
 <table class="table table-hover table-bordered">
     <tr class="well">
         <th>Detalji narudžbe</th>
-        <th>Cijena jela</th>
         <th>Restoran</th>
-     
+ 
     </tr>
 
-    <tr ng-repeat="jelo in narudzba | orderBy: jelo.tipJelaID">
+    <tr ng-repeat="narudzba in narudzbe">
 
         <td class="col-md-1">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-title">
-                        NAZIV JELA: {{jelo[2]}}
-                    </div>
+            <div class="panel-group panel panel-default">
+                <div class="panel-heading panel-title">
+                    <strong>NARUDŽBA BROJ {{$index+1}}.</strong> <br />
+                   <strong> VRIJEME NARUDŽBE: </strong> <br />  {{narudzba[0][0][3]}}:{{narudzba[0][0][4]}}:{{narudzba[0][0][5]}}, {{narudzba[0][0][2]}}.{{narudzba[0][0][1]}}.{{narudzba[0][0][0]}}
+                </div>
+                <div ng-repeat="jelo in narudzba">
+                    
                     <div class="panel">
                         <div class="panel-body">
-                            <div>VRIJEME NARUDŽBE: <br /> {{jelo[0][1]}}.{{jelo[0][2]}}.{{jelo[0][0]}}, {{jelo[0][3]}}:{{jelo[0][4]}}:{{jelo[0][5]}}<br /> MOJA ADRESA:<br /> {{jelo[6]}}</div>
+                            <div>JELO:<br /> {{jelo[2]}}, {{narudzba[$index][4]}} porcija/e, {{jelo[3]/jelo[4]}} kn po porciji  </div>
+               
                         </div>
                     </div>
                 </div>
+                <div class="panel-body">
+                    <div><strong> UKUPNA CIJENA: </strong><br /> {{narudzba[$index][8]}} kn</div>
+                </div>
+               
             </div>
 
         </td>
         <td class="col-xs-1">
-          <div class="panel-group">
-             <div class="panel panel-default">
+            <div class="panel-group panel panel-default">
                 <div class="panel-heading panel-title">
-                      CIJENA JELA PO PORCIJI: {{jelo[3] / jelo[4]}} kn
+                   <strong> {{restoran[$index][0].naziv}} </strong> <br/>
+                    <div><strong> ADRESA RESTORANA: </strong><br /> {{restoran[$index][0].adresa}}</div>
                 </div>
-                <div class="panel">
-                    <div class="panel-body">
-                        <div>NARUČENO PORCIJA:{{jelo[4]}} porcija/e <br /> UKUPNA CIJENA: {{jelo[3]}} kn</div>
-                    </div>
-                </div>
-            </div>
-         </div> 
+
+            </div> 
         </td>
-        <td class="col-xs-1">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-title">
-                        {{restoran[0].naziv}}
-                    </div>
-                    <div class="panel">
-                        <div class="panel-body">
-                            ADRESA RESTORANA: <br />{{jelo[7]}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
+    
     </tr>
 
 
@@ -91,13 +79,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Lozinka</label>
-            <div class="col-sm-7">
-                <input type="password" class="form-control input-lg" id="password" placeholder="Lozinka" ng-model="lozinka" />
-
-            </div>
-        </div>
+   
     </fieldset>
 
 

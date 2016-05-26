@@ -26,11 +26,11 @@ namespace web.Controllers
         }
 
      
-        public bool Create(int newID, int newKolicina, string newMail, string newAdresa, string newVrijeme, int newJeloID, int newRestoranID)
+        public bool Create(int newID, int newKolicina, string newMail, string newAdresa, string newVrijeme, int newJeloID, int newRestoranID, int newUkupnaCijena)
         {
 
 
-            var odab_jelo = new OdabranoJelo { ID = newID, Kolicina = newKolicina, Mail = newMail, Adresa = newAdresa, Vrijeme = newVrijeme, JeloID = newJeloID, RestoranID = newRestoranID };
+            var odab_jelo = new OdabranoJelo { ID = newID, Kolicina = newKolicina, Mail = newMail, Adresa = newAdresa, Vrijeme = newVrijeme, JeloID = newJeloID, RestoranID = newRestoranID, UkupnaCijena = newUkupnaCijena };
             if (!ModelState.IsValid)
             {
                 return false;

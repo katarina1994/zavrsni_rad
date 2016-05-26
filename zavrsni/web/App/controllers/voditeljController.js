@@ -58,7 +58,7 @@
     };
     
     $scope.dodaj_jelo = function (id, naziv, cijena, detalji, tipid, restid) {
-        console.log(id);
+       
         jela1Service.insertJelo(id, naziv, cijena, detalji, tipid, restid).then(function (result) {
             $route.reload();
 

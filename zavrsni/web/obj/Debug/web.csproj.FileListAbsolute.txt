@@ -502,3 +502,11 @@ C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\System.Web.Mvc.xml
 C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\obj\Debug\web.csprojResolveAssemblyReference.cache
 C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\obj\Debug\web.dll
 C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\obj\Debug\web.pdb
+C:\Users\Katarina123\Desktop\web\kata\web\bin\EntityFramework.PowerShell.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\EntityFramework.PowerShell.Utility.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\EnvDTE.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\VSLangProj.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\stdole.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\Microsoft.MSXML.dll
+C:\Users\Katarina123\Desktop\web\kata\web\bin\EnvDTE.xml
+C:\Users\Katarina123\Desktop\web\kata\web\bin\VSLangProj.xml

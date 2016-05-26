@@ -24,7 +24,7 @@
                     <label class="link col-md-6" ng-show="aktivno==1"> TRAŽILICA <input type="search" class="form-control" placeholder="pretraga..." ng-model="search" /></label>
 
                 </div>
-
+                
                 <table class="table table-hover table-bordered tablica" ng-show="aktivno==1">
                     <tr class="well">
                         <th>NAZIV</th>
@@ -32,8 +32,8 @@
                         <th>UDALJENOST DO RESTORANA (km)</th>
                         <th>RADNO VRIJEME</th>
                     </tr>
-
-                    <tr ng-repeat="restoran in nadeniRestorani | filter:search">
+                    
+                    <tr ng-repeat="restoran in nadeniRestorani">
 
                         <td class="col-md-2">
                             <a class="link" data-toggle="tab" href="/#restoran" ng-click="spremi_id(restoran.id)">

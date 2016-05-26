@@ -1,22 +1,36 @@
 ﻿web.controller('narudzbeController', ['$scope', 'restoraniService', 'authService', 'jela1Service', 'odabranoJeloService', 'odabranoJelo1Service', function ($scope, restoraniService, authService, jela1Service, odabranoJeloService, odabranoJelo1Service) {
 
     $scope.authentication = authService.authentication;
-    $scope.narudzba = null;
+    $scope.narudzba = [];
     $scope.jela = null;
     $scope.id = $scope.authentication.restID;
     
     odabranoJeloService.getOdabranaJela().then(function (result) {
-        $scope.narudzba = result.data;
+        
+        $scope.pomocna1 = result.data;
+        
+        for (m = 0; m < $scope.pomocna1.length; m++) {
+            if ($scope.id == $scope.pomocna1[m].restoranID) {
+                $scope.narudzba.push($scope.pomocna1[m])
+                //console.log($scope.pomocna1[m].restoranID);
+            }
+            
+        }
         
      
         for (i = 0; i < $scope.narudzba.length; i++) {       
             restoraniService.getRestoraniByID($scope.narudzba[i].restoranID).then(function (result) {
                 $scope.restoran = result.data;
             });
-
+           
             jela1Service.getJelaByID($scope.narudzba[i].jeloID).then(function (result) {
-                $scope.jelo = result.data;
-                console.log($scope.jelo);
+                $scope.pomocna = result.data;
+                for (k = 0; k < $scope.pomocna.length; k++) {
+                    if ($scope.id == $scope.pomocna[k].restoranID) {
+                        $scope.jelo = $scope.pomocna
+                        console.log($scope.jelo);
+                    }
+                }
             });
         }
     });

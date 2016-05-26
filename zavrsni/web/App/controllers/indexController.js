@@ -1,4 +1,4 @@
-﻿web.controller('indexController', ['$scope', '$window', 'restoraniService', 'userService', 'jelaService', '$route', function ($scope, $window, restoraniService, userService, jelaService, $route) {
+﻿web.controller('indexController', ['$scope', '$window', 'restoraniService', 'userService', 'jela1Service', 'jelaService', '$route', function ($scope, $window, restoraniService, userService, jela1Service, jelaService, $route) {
 
     var res = new Array();
     $scope.restorani = null;
@@ -240,5 +240,14 @@
     }
     localStorage["popis_restorana"] = JSON.stringify([]);
     localStorage["moja_adresa"] = JSON.stringify([]);
+
+
+
+    jela1Service.getJela().then(function (result) {
+        $scope.jela = result.data;
+
+    });
+
+
 
 }]);

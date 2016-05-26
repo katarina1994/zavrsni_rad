@@ -2,16 +2,21 @@
 
 var jela1Service = {}
 
-jela1Service.getJelaByID = function (id) {
-    return $http.get('api/Jela/GetJelaByID/' + id);
+jela1Service.getJela = function () {
+    return $http.get('api/Jelo');
 }
 
+jela1Service.getJelaByID = function (id) {
+    return $http.get('api/Jelo/GetJelaByID/' + id);
+}
+
+
 jela1Service.getJelaTheirID = function (id) {
-    return $http.get('api/Jela/GetJelaTheirID/' + id);
+    return $http.get('api/Jelo/GetJelaTheirID/' + id);
 }
 
 jela1Service.deleteJelo = function (id) {
-    return $http.get('api/Jela/DeleteJelo/' + id);
+    return $http.get('api/Jelo/DeleteJelo/' + id);
 }
 
 jela1Service.insertJelo = function (id, naziv, cijena, detalji, tipid, restid) {

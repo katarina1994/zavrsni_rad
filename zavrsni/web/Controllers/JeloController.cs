@@ -13,7 +13,7 @@ using web.Models;
 
 namespace web.Controllers
 {
-    [RoutePrefix("api/Jela")]
+    [RoutePrefix("api/Jelo")]
     public class JeloController : ApiController
     {
         private DatabaseContext db = new DatabaseContext();

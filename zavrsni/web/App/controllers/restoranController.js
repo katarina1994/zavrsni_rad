@@ -22,7 +22,8 @@
     $scope.id = 0;
     $scope.uklanjanje = 0;
     $scope.primljeno = 0;
- 
+    $scope.spremi = [];
+    $scope.prikazi = 0;
    // var search = $routeParams.id;
     //$scope.id = $routeParams.id;
     //if($location.url() == '/index/id/')
@@ -66,7 +67,7 @@
          
         }
         else {
-            alert("aaaaaa");
+            $scope.prikazi = 1;
         }
     }
 
@@ -75,6 +76,7 @@
         $scope.price[id] -= price;
         $scope.quantity[id] -= quantity;
         $scope.kosarica[id] = [name, $scope.price[id], $scope.quantity[id]];
+        $scope.kosarica_posalji[index] = [id, $scope.quantity[id]];
         $scope.ukupna_cijena -= price ;
         $scope.ukupna_kolicina -= quantity;
         var zap = $scope.kosarica[id][2];
@@ -99,20 +101,22 @@
         var mail = $scope.email;
         time = time.split(":");
         moja_adresa = JSON.parse(localStorage.getItem("moja_adresa"));
+        
         for (i = 0; i < $scope.kosarica_posalji.length ; i++) {
-            if ($scope.kosarica_posalji[i]) {
+            if ($scope.kosarica_posalji[i] && $scope.kosarica_posalji[i][1] !=0) {
+                $scope.spremi.push([time, $scope.kosarica_posalji[i][0], $scope.kosarica[$scope.kosarica_posalji[i][0]][0], $scope.kosarica[$scope.kosarica_posalji[i][0]][1], $scope.kosarica_posalji[i][1], $scope.id_restorana, moja_adresa[0], $scope.restoran[0].adresa, $scope.ukupna_cijena]);
                 $scope.id += 1;
-                odabranoJelo1Service.set([time, $scope.kosarica_posalji[i][0], $scope.kosarica[$scope.kosarica_posalji[i][0]][0], $scope.kosarica[$scope.kosarica_posalji[i][0]][1], $scope.kosarica_posalji[i][1], $scope.id_restorana, moja_adresa[0], $scope.restoran[0].adresa]);
-
-                odabranoJeloService.odaberiJelo($scope.id, $scope.kosarica_posalji[i], $scope.id_restorana, mail, moja_adresa, vrijeme).then(function (result) {
+                
+                odabranoJeloService.odaberiJelo($scope.id, $scope.kosarica_posalji[i], $scope.id_restorana, mail, moja_adresa, vrijeme, $scope.ukupna_cijena).then(function (result) {
                     $scope.primljeno = 1;
 
                 });
 
             }
         }
-        
+        odabranoJelo1Service.set($scope.spremi);
         $scope.kosarica_posalji = [];
+        //$scope.spremi = [];
     }
 
 
@@ -129,7 +133,7 @@
         $scope.klik = [];
         $scope.uklanjanje = 0;
         $scope.primljeno = 0;
-
+        $scope.prikazi = 0;
     }
     restoraniService.getRestoraniByID($scope.id_restorana).then(function (result) {
         $scope.restoran = result.data;
