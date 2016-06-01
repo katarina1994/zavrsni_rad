@@ -21,6 +21,7 @@ namespace web.Models
         
         public String Ime { get; set; }
         public String Prezime { get; set; }
+        public String Mail { get; set; }
         public int OvlastID { get; set; }
         public int RestID { get; set; }
 

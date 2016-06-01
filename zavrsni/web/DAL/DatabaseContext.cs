@@ -30,5 +30,7 @@ namespace web.DAL
         {
             return new DatabaseContext();
         }
+
+        public System.Data.Entity.DbSet<web.Models.Korisnik> IdentityUsers { get; set; }
     }
 }

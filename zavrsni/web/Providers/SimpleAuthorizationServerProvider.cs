@@ -49,6 +49,7 @@ namespace web.Providers
                     { "userName", user.UserName },
                     { "ime", user.Ime },
                     { "prezime", user.Prezime },
+                    { "mail", user.Mail },
                     { "ovlastID", user.OvlastID.ToString() },
                     { "restID", user.RestID.ToString() },
 

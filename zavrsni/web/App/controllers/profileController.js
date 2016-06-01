@@ -1,4 +1,4 @@
-﻿web.controller('profileController', ['$scope', 'authService', 'restoraniService', 'jela1Service', 'odabranoJeloService', 'odabranoJelo1Service', function ($scope, authService, restoraniService, jela1Service, odabranoJeloService, odabranoJelo1Service) {
+﻿web.controller('profileController', ['$scope', 'authService', 'korisnikService', 'restoraniService', 'jela1Service', 'odabranoJeloService', 'odabranoJelo1Service', function ($scope, authService, korisnikService, restoraniService, jela1Service, odabranoJeloService, odabranoJelo1Service) {
 
     $scope.restoran = [];
     $scope.authentication = authService.authentication;
@@ -25,5 +25,16 @@
     $scope.ime = $scope.authentication.ime;
     $scope.prezime = $scope.authentication.prezime;
     $scope.username = $scope.authentication.userName;
-    $scope.email = $scope.authentication.email;
+    $scope.email = $scope.authentication.mail;
+
+    $scope.spremiPodatke = function () {
+
+  
+        $scope.authentication.ime = $scope.ime;
+        $scope.authentication.prezime = $scope.prezime;
+        $scope.authentication.userName = $scope.username;
+        $scope.authentication.mail = $scope.email;
+      
+
+    }
 }]);

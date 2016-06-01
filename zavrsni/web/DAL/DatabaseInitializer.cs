@@ -837,8 +837,9 @@ namespace web.DAL
                 UserName = "korisnik1",
                 Password = "korisnik1",
                 ConfirmPassword = "korisnik1",
-                Ime = "kor_Naziv",
-                Prezime = "kor_prezNaziv",
+                Ime = "Ante",
+                Prezime = "Antić",
+                Mail = "ante@ante.hr",
                 OvlastID = 2,
                 RestID = 0
         
@@ -853,8 +854,9 @@ namespace web.DAL
                 UserName = "administrator",
                 Password = "administrator",
                 ConfirmPassword = "administrator",
-                Ime = "admin_Naziv",
-                Prezime = "admin_prezNaziv",
+                Ime = "admin_ime",
+                Prezime = "admin_prezime",
+                Mail = "majl@Mail.hr",
                 OvlastID = 1,
                 RestID = 0
             };
@@ -866,9 +868,10 @@ namespace web.DAL
                 UserName = "voditelj1",
                 Password = "voditelj1",
                 ConfirmPassword = "voditelj1",
-                Ime = "vod_Naziv1",
-                Prezime = "vod_prezNaziv1",
+                Ime = "vod_ime1",
+                Prezime = "vod_prezime1",
                 OvlastID = 3,
+                Mail = "majl1@Mail.hr",
                 RestID = 1
             };
             _userManager.Create(voditelj1, voditelj1.Password);
@@ -877,8 +880,9 @@ namespace web.DAL
                 UserName = "voditelj2",
                 Password = "voditelj2",
                 ConfirmPassword = "voditelj2",
-                Ime = "vod_Naziv2",
-                Prezime = "vod_prezNaziv2",
+                Ime = "vod_ime2",
+                Prezime = "vod_prezime2",
+                Mail = "majl2@Mail.hr",
                 OvlastID = 3,
                 RestID = 2
             };
@@ -888,8 +892,9 @@ namespace web.DAL
                 UserName = "voditelj3",
                 Password = "voditelj3",
                 ConfirmPassword = "voditelj3",
-                Ime = "vod_Naziv3",
-                Prezime = "vod_prezNaziv3",
+                Ime = "vod_ime3",
+                Prezime = "vod_prezime3",
+                Mail = "majl3@Mail.hr",
                 OvlastID = 3,
                 RestID = 3
             };
@@ -899,8 +904,9 @@ namespace web.DAL
                 UserName = "voditelj4",
                 Password = "voditelj4",
                 ConfirmPassword = "voditelj4",
-                Ime = "vod_Naziv4",
-                Prezime = "vod_prezNaziv4",
+                Ime = "vod_ime4",
+                Prezime = "vod_prezime4",
+                Mail = "majl4@Mail.hr",
                 OvlastID = 3,
                 RestID = 4
             };
@@ -910,8 +916,9 @@ namespace web.DAL
                 UserName = "voditelj5",
                 Password = "voditelj5",
                 ConfirmPassword = "voditelj5",
-                Ime = "vod_Naziv5",
-                Prezime = "vod_prezNaziv5",
+                Ime = "vod_ime5",
+                Prezime = "vod_prezime5",
+                Mail = "majl5@Mail.hr",
                 OvlastID = 3,
                 RestID = 5
             };
@@ -921,8 +928,9 @@ namespace web.DAL
                 UserName = "voditelj6",
                 Password = "voditelj6",
                 ConfirmPassword = "voditelj6",
-                Ime = "vod_Naziv6",
-                Prezime = "vod_prezNaziv6",
+                Ime = "vod_ime6",
+                Prezime = "vod_prezime6",
+                Mail = "majl6@Mail.hr",
                 OvlastID = 3,
                 RestID = 6
             };
@@ -932,8 +940,9 @@ namespace web.DAL
                 UserName = "voditelj7",
                 Password = "voditelj7",
                 ConfirmPassword = "voditelj7",
-                Ime = "vod_Naziv7",
-                Prezime = "vod_prezNaziv7",
+                Ime = "vod_ime7",
+                Prezime = "vod_prezime7",
+                Mail = "majl7@Mail.hr",
                 OvlastID = 3,
                 RestID = 7
             };
@@ -943,8 +952,9 @@ namespace web.DAL
                 UserName = "voditelj8",
                 Password = "voditelj8",
                 ConfirmPassword = "voditelj8",
-                Ime = "vod_Naziv8",
-                Prezime = "vod_prezNaziv8",
+                Ime = "vod_ime8",
+                Prezime = "vod_prezime8",
+                Mail = "majl8@Mail.hr",
                 OvlastID = 3,
                 RestID = 8
             };
@@ -954,8 +964,9 @@ namespace web.DAL
                 UserName = "voditelj9",
                 Password = "voditelj9",
                 ConfirmPassword = "voditelj9",
-                Ime = "vod_Naziv9",
-                Prezime = "vod_prezNaziv9",
+                Ime = "vod_ime9",
+                Prezime = "vod_prezime9",
+                Mail = "majl9@Mail.hr",
                 OvlastID = 3,
                 RestID = 9
             };
@@ -965,8 +976,9 @@ namespace web.DAL
                 UserName = "voditelj10",
                 Password = "voditelj10",
                 ConfirmPassword = "voditelj10",
-                Ime = "vod_Naziv10",
-                Prezime = "vod_prezNaziv10",
+                Ime = "vod_ime10",
+                Prezime = "vod_prezime10",
+                Mail = "majl10@Mail.hr",
                 OvlastID = 3,
                 RestID = 10
             };
@@ -976,8 +988,9 @@ namespace web.DAL
                 UserName = "voditelj11",
                 Password = "voditelj11",
                 ConfirmPassword = "voditelj11",
-                Ime = "vod_Naziv11",
-                Prezime = "vod_prezNaziv11",
+                Ime = "vod_ime11",
+                Prezime = "vod_prezime11",
+                Mail = "majl11@Mail.hr",
                 OvlastID = 3,
                 RestID = 11
             };
@@ -987,8 +1000,9 @@ namespace web.DAL
                 UserName = "voditelj12",
                 Password = "voditelj12",
                 ConfirmPassword = "voditelj12",
-                Ime = "vod_Naziv12",
-                Prezime = "vod_prezNaziv12",
+                Ime = "vod_ime12",
+                Prezime = "vod_prezime12",
+                Mail = "majl12@Mail.hr",
                 OvlastID = 3,
                 RestID = 12
             };
@@ -998,8 +1012,9 @@ namespace web.DAL
                 UserName = "voditelj13",
                 Password = "voditelj13",
                 ConfirmPassword = "voditelj13",
-                Ime = "vod_Naziv13",
-                Prezime = "vod_prezNaziv13",
+                Ime = "vod_ime13",
+                Prezime = "vod_prezime13",
+                Mail = "majl13@Mail.hr",
                 OvlastID = 3,
                 RestID = 13
             };
@@ -1009,8 +1024,9 @@ namespace web.DAL
                 UserName = "voditelj14",
                 Password = "voditelj14",
                 ConfirmPassword = "voditelj14",
-                Ime = "vod_Naziv14",
-                Prezime = "vod_prezNaziv14",
+                Ime = "vod_ime14",
+                Prezime = "vod_prezime14",
+                Mail = "majl14@Mail.hr",
                 OvlastID = 3,
                 RestID = 14
             };
@@ -1020,8 +1036,9 @@ namespace web.DAL
                 UserName = "voditelj15",
                 Password = "voditelj15",
                 ConfirmPassword = "voditelj15",
-                Ime = "vod_Naziv15",
-                Prezime = "vod_prezNaziv15",
+                Ime = "vod_ime15",
+                Prezime = "vod_prezime",
+                Mail = "majl15@Mail.hr",
                 OvlastID = 3,
                 RestID = 15
             };
@@ -1031,8 +1048,9 @@ namespace web.DAL
                 UserName = "voditelj16",
                 Password = "voditelj16",
                 ConfirmPassword = "voditelj16",
-                Ime = "vod_Naziv16",
-                Prezime = "vod_prezNaziv16",
+                Ime = "vod_ime16",
+                Prezime = "vod_prezime16",
+                Mail = "majl16@Mail.hr",
                 OvlastID = 3,
                 RestID = 16
             };
@@ -1042,8 +1060,9 @@ namespace web.DAL
                 UserName = "voditelj17",
                 Password = "voditelj17",
                 ConfirmPassword = "voditelj17",
-                Ime = "vod_Naziv17",
-                Prezime = "vod_prezNaziv17",
+                Ime = "vod_ime17",
+                Prezime = "vod_prezime17",
+                Mail = "majl17@Mail.hr",
                 OvlastID = 3,
                 RestID = 17
                 

@@ -235,7 +235,7 @@
     moja_adresa = null;
     moja_adresa = JSON.parse(localStorage.getItem("moja_adresa"));
     userService.model.adresa = moja_adresa;
-    if (userService.model.adresa[0] != null) {
+    if (userService.model.adresa != null) {
         $scope.address = userService.model.adresa[0];
     }
     localStorage["popis_restorana"] = JSON.stringify([]);

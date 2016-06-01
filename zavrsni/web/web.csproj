@@ -200,6 +200,7 @@
     <Content Include="App\services\authService.js" />
     <Content Include="App\services\jela1Service.js" />
     <Content Include="App\services\jelaService.js" />
+    <Content Include="App\services\korisnikService.js" />
     <Content Include="App\services\odabranoJelo1Service.js" />
     <Content Include="App\services\odabranoJeloService.js" />
     <Content Include="App\services\restoraniService.js" />
@@ -219,9 +220,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\my_css.css" />
-    <Content Include="Content\ngDialog-theme-default.css" />
-    <Content Include="Content\ngDialog.css" />
-    <Content Include="Content\ngDialog.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
     <Content Include="images\food.png" />
@@ -268,6 +266,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JeloController.cs" />
+    <Compile Include="Controllers\KorisnikController.cs" />
     <Compile Include="Controllers\OdabranoJeloController.cs" />
     <Compile Include="Controllers\OdabranoJeloVoditeljController.cs" />
     <Compile Include="Controllers\RestoraniController.cs" />

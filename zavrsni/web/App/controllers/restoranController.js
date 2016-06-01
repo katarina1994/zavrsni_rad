@@ -24,10 +24,9 @@
     $scope.primljeno = 0;
     $scope.spremi = [];
     $scope.prikazi = 0;
-   // var search = $routeParams.id;
-    //$scope.id = $routeParams.id;
-    //if($location.url() == '/index/id/')
-  
+   
+    $scope.email = $scope.authentication.mail;
+
     restoraniService.getRestoraniByID($scope.id_restorana).then(function (result) {
         $scope.restoran = result.data;
         
