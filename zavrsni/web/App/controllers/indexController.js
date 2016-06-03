@@ -7,6 +7,7 @@
     var popis_restorana = null;
     var moja_adresa = null;
     $scope.nadeniRestorani = [];
+    $scope.nadeno = [];
     var spremi = new Array();
     var my_latitude = null;
     var my_longitude = null;
@@ -138,6 +139,7 @@
                                     angular.forEach(rest, function (value, key) {
                                         if (value.radijusDostave >= $scope.dest_udalj[(value.id - 1)]) {
                                             $scope.nadeniRestorani.push(value);
+                                            $scope.nadeno.push(value);
                                             $scope.aktivno = 1;
                                         }
 
@@ -242,12 +244,81 @@
     localStorage["moja_adresa"] = JSON.stringify([]);
 
 
-
+    $scope.kljucevi = null;
     jela1Service.getJela().then(function (result) {
         $scope.jela = result.data;
+
+        $scope.kljucevi = Object.keys($scope.jela[0]);
+        $scope.kljucevi.splice(0, 1);
+        $scope.kljucevi.splice(3, 1);
+        $scope.kljucevi.splice(3, 1);
+        $scope.kljucevi.splice(3, 1);
+        $scope.kljucevi.splice(3, 1);
 
     });
 
 
+
+    $scope.getFilteredData = function () {
+        $scope.nadeno = [];
+        //console.log($scope.filterValue);
+        //console.log($scope.jela);
+        for (i = 0; i < $scope.jela.length ; i++) {
+            var pom = $scope.SelectedCriteria;
+            var zapamti = $scope.jela[i][pom];
+            if (zapamti.toString().indexOf($scope.filterValue) != -1) {
+
+
+                for (j = 0; j < $scope.nadeniRestorani.length; j++) {
+                    if ($scope.nadeniRestorani[j].id == $scope.jela[i].restoranID) {
+                        console.log($scope.nadeniRestorani[j].naziv);
+                        if (contains($scope.nadeno, $scope.nadeniRestorani[j]) == false) {
+                            $scope.nadeno.push($scope.nadeniRestorani[j]);
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    };
+
+    function contains(a, obj) {
+        var i = a.length;
+        while (i--) {
+            if (a[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    function getDateTime() {
+
+        var date = new Date();
+
+        var hour = date.getHours();
+        hour = (hour < 10 ? "0" : "") + hour;
+
+        var min = date.getMinutes();
+        min = (min < 10 ? "0" : "") + min;
+
+        var sec = date.getSeconds();
+        sec = (sec < 10 ? "0" : "") + sec;
+
+        var year = date.getFullYear();
+
+        var month = date.getMonth() + 1;
+        month = (month < 10 ? "0" : "") + month;
+
+        var day = date.getDate();
+        day = (day < 10 ? "0" : "") + day;
+
+        return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
+
+    }
 
 }]);

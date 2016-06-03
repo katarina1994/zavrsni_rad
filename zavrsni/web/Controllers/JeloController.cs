@@ -40,6 +40,8 @@ namespace web.Controllers
             return db.Jela.Where(s => s.ID == id);
         }
 
+        
+
         // GET: api/Jelo/5
         [ResponseType(typeof(Jelo))]
         public IHttpActionResult GetJelo(int id)

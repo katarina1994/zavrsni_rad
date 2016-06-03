@@ -1,4 +1,40 @@
-﻿<h1>
-    ADMINOVE POSTAVKE
+﻿<div class="container">
+    <table class="table table-hover table-bordered admin">
+        <tr class="well">
+            <th>IME I PREZIME</th>
+            <th>USERNAME</th>
+            <th>LOZINKA</th>
+            <th>MAIL</th>
+            <th>OVLAST ID</th>
+            <th>ID RESTORANA I NAZIV</th>
+            <th>UREĐIVANJE</th>
+        </tr>
 
-</h1>
+        <tr ng-repeat="korisnik in korisnici">
+
+            <td class="col-xs-1">
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-title">
+                          {{korisnik.ime}} {{korisnik.prezime}}
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="col-sm-1"> {{korisnik.userName}} </td>
+            <td class="col-xs-1"> {{korisnik.password}} </td>
+            <td class="col-sm-1"> {{korisnik.mail}} </td>
+            <td class="col-sm-1"> {{korisnik.ovlastID}} <br /> {{ovlasti[korisnik.ovlastID]}}</td>
+            <td class="col-sm-1" ng-show="restorani[korisnik.restID][0].naziv"> {{korisnik.restID}} <br /> {{restorani[korisnik.restID][0].naziv}}</td>
+            <td class="col-sm-1" ng-hide="restorani[korisnik.restID][0].naziv"> (samo voditelj restorana ima ovaj podatak) </td>
+            <td class="col-sm-1">
+                <button class="col-md-6 btn btn-info" ng-click="izbrisi(korisnik)"> 
+                    izbriši 
+                </button>
+            </td>
+        </tr>
+
+
+    </table>
+</div>

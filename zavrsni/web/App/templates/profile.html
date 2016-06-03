@@ -1,5 +1,5 @@
 ﻿<div class="container">
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered prof" ng-hide="ukupna_cijena == 0">
     <tr class="well">
         <th>Detalji narudžbe</th>
         <th>Restoran</th>
@@ -22,10 +22,11 @@
                
                         </div>
                     </div>
+                    <div class="panel-body">
+                        <div><strong> UKUPNA CIJENA: </strong><br /> {{narudzba[$index][8]}} kn</div>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <div><strong> UKUPNA CIJENA: </strong><br /> {{narudzba[$index][8]}} kn</div>
-                </div>
+                
                
             </div>
 
@@ -46,7 +47,7 @@
 </table>
 
 
-    <fieldset class="registracija">
+    <fieldset class="podaci_korisnik">
         <div class="form-group">
             <label for="name" class="col-sm-3 control-label">Ime</label>
             <div class="col-sm-7">

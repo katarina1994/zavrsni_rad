@@ -18,11 +18,11 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
     var _saveRegistration = function (registration) {
 
         _logOut();
-
-        return $http.post(serviceBase + 'api/account/register', registration).then(function (response) {
+      
+        return $http.post(serviceBase + 'api/account/register', registration).then(function (response) {            
             return response;
         });
-
+       
     };
 
     var _login = function (loginData) {
@@ -34,7 +34,7 @@ web.factory('authService', ['$http', '$q', 'localStorageService', function ($htt
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
-
+            
             _authentication.isAuth = true;
             _authentication.userName = response.userName;
             _authentication.id = response.id;

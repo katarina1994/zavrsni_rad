@@ -8,7 +8,6 @@
     $scope.odabrana = null;
     $scope.narudzbe = odabranoJelo1Service.get();
  
-    
     for (i = 0; i < $scope.narudzbe.length; i++) {
         
         for (j = 0; j < $scope.narudzbe[i].length; j++) {
@@ -26,6 +25,7 @@
     $scope.prezime = $scope.authentication.prezime;
     $scope.username = $scope.authentication.userName;
     $scope.email = $scope.authentication.mail;
+
 
     $scope.spremiPodatke = function () {
 

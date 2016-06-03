@@ -1,0 +1,14 @@
+﻿<div class="modal-body">
+    <strong> Prvo se morate ulogirati kako biste naručili dostavu! </strong>
+</div>
+<div class="modal-footer">
+ 
+    <div class="form-group upozorenje">
+        <input ng-model="loginData.userName" type="text" class="form-control" placeholder="Korisničko ime">
+        <input ng-model="loginData.password" type="password" class="form-control" placeholder="Lozinka">
+        <br/>
+        <button  ng-hide="authentication.isAuth"  class="btn btn-default" ng-click="login()"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Prijava</button>
+        <button class="btn btn-info" ng-click="okej()">Zatvori</button>
+    </div>
+
+</div>

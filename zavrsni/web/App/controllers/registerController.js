@@ -12,7 +12,7 @@
         ime: "",
         prezime: "",
         userName: "",
-        email: "",
+        mail: "",
         password: "",
         confirmPassword: ""
     }

@@ -112,6 +112,14 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Postal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=45719375b8b4d528, processorArchitecture=MSIL">
+      <HintPath>..\packages\Postal.Mvc5.1.2.0\lib\net45\Postal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.4.1.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.Entity.Repository, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.Entity.Repository.2.0.0.1\lib\net45\System.Data.Entity.Repository.dll</HintPath>
       <Private>True</Private>
@@ -196,6 +204,7 @@
     <Content Include="App\controllers\mainController.js" />
     <Content Include="App\controllers\restoranController.js" />
     <Content Include="App\controllers\voditeljController.js" />
+    <Content Include="App\services\adminService.js" />
     <Content Include="App\services\authInterceptorService.js" />
     <Content Include="App\services\authService.js" />
     <Content Include="App\services\jela1Service.js" />
@@ -212,6 +221,7 @@
     <Content Include="App\templates\profile.html" />
     <Content Include="App\templates\register.html" />
     <Content Include="App\templates\restoran.html" />
+    <Content Include="App\templates\upozorenje.html" />
     <Content Include="App\templates\voditelj.html" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />

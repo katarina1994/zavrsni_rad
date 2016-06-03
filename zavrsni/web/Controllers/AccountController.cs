@@ -3,7 +3,12 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using web.Models;
+using System.Data.Entity;
 using web.Repositories;
+using web.DAL;
+using web.Infrastructure;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace web.Controllers
 {
@@ -16,6 +21,17 @@ namespace web.Controllers
         {
             _repo = new AuthRepository();
         }
+
+        [AllowAnonymous]
+        [Route("GetUsers")]
+        public async Task<List<Korisnik>> GetUsersAsync()
+        {
+            using (var context = new DatabaseContext())
+            {
+                return await context.IdentityUsers.ToListAsync();
+            }
+        }
+
 
         // POST api/Account/Register
         [AllowAnonymous]

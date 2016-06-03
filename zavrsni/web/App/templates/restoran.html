@@ -1,26 +1,19 @@
 ﻿<div class="container">
     <div ng-show="primljeno==1" class="alert alert-success fade in col-md-10">
         <a class="close" aria-label="close" ng-click="reset()">&times;</a>
-        <strong>Uspješno zaprimljena narudžba!</strong> Uskoro ćete dobiti potvrdu restorana na Vašu e-mail adresu!
-    </div>
-
-    <div  ng-show="prikazi==1" class="alert alert-success fade in col-md-10">
-        <a class="close" aria-label="close" ng-click="reset()">&times;</a>
-        <strong>Prijavite se!</strong> Prije obavljanja narudžbe obavite prijavu/registraciju.
+        <strong>Uspješno zaprimljena narudžba!</strong> Uskoro ćete dobiti potvrdu restorana na Vaš email!
     </div>
     <div class="container col-md-12">
        
         <div class="col-md-8">
            
             <div class="col-md-12 podaci_rest">
-                <label  align="center"  class="ime col-md-10 ">{{restoran[0].naziv}}</label>
+                <label  align="center"  class="ime col-md-12 ">{{restoran[0].naziv}}</label>
                 <br />
-                <label  align="center"  class="adresa_vrijeme col-md-10 ">{{restoran[0].adresa}}</label>
+                <label  align="center"  class="adresa_vrijeme col-md-12 ">{{restoran[0].adresa}}</label>
                 <br />
-                <label class="col-md-10 adresa_vrijeme" align="center" ng-hide="otvoren == 0"> RESTORAN JE OTVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
-                <label class="col-md-10 adresa_vrijeme" align="center" ng-hide="otvoren == 1"> RESTORAN JE ZATVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
-
-
+                <label class="col-md-10 adresa_vrijeme" align="center" ng-hide="otvoren == 0"> OTVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
+                <label class="col-md-10 adresa_vrijeme" align="center" ng-hide="otvoren == 1"> ZATVOREN ({{restoran[0].vrijeme_otvaranja}} - {{ restoran[0].vrijeme_zatvaranja}})</label>
             </div>
 
             <div class="kosarica">
@@ -95,8 +88,8 @@
                     <td class="col-sm-1"> {{jelo.kratki_opis}}</td>
                     <td class="col-xs-1"> {{jelo.cijena}} kn </td>
                     <td class="col-xs-2">
-                        <button class="col-md-9 btn btn-info" ng-disabled="uklanjanje == 1" ng-click="addItem($index,jelo.id, jelo.naziv_jelo, jelo.cijena, 1)"> stavi u košaricu </button>
-
+                        <button ng-hide="!authentication.isAuth" class="col-md-9 btn btn-info" ng-disabled="uklanjanje == 1" ng-click="addItem($index,jelo.id, jelo.naziv_jelo, jelo.cijena, 1)"> stavi u košaricu </button>
+                        <button ng-hide="authentication.isAuth" class="col-md-9 btn btn-info" ng-disabled="uklanjanje == 1" ng-really-click="addItem($index,jelo.id, jelo.naziv_jelo, jelo.cijena, 1)"> stavi u košaricu </button>
                     </td>
 
 

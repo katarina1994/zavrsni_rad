@@ -13,6 +13,7 @@ namespace web.DAL
             Configuration.LazyLoadingEnabled = false;
         }
 
+        
         public DbSet<Ovlast> Ovlasti { get; set; }
         public DbSet<Restoran> Restorani { get; set; }
         public DbSet<Jelo> Jela { get; set; }

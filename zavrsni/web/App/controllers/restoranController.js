@@ -66,7 +66,7 @@
          
         }
         else {
-            $scope.prikazi = 1;
+           //nema prijave, upozorenje o loginu!
         }
     }
 
