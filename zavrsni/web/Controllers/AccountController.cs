@@ -15,6 +15,7 @@ namespace web.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private DatabaseContext db = new DatabaseContext();
         private AuthRepository _repo = null;
 
         public AccountController()
@@ -31,6 +32,10 @@ namespace web.Controllers
                 return await context.IdentityUsers.ToListAsync();
             }
         }
+
+
+  
+        
 
 
         // POST api/Account/Register

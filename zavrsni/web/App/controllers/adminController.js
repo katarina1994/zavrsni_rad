@@ -23,8 +23,13 @@
     });
 
 
-
+    $scope.izbrisano = [];
     $scope.izbrisi = function (korisnik) {
-        console.log(korisnik);
+        
+        adminService.deleteKorisnik(korisnik.id).then(function (result) {
+            $scope.izbrisano[korisnik.id] = 1;
+            $route.reload();
+            
+        });
     }
 }]);

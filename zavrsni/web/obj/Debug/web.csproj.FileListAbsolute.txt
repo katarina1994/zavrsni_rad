@@ -523,3 +523,8 @@ C:\Users\Katarina123\Desktop\web\kata\web\bin\RazorEngine.dll
 C:\Users\Katarina123\Desktop\web\kata\web\bin\Postal.xml
 C:\Users\Katarina123\Desktop\web\kata\web\bin\RazorEngine.pdb
 C:\Users\Katarina123\Desktop\web\kata\web\bin\RazorEngine.xml
+C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\Postal.dll
+C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\RazorEngine.dll
+C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\Postal.xml
+C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\RazorEngine.pdb
+C:\Users\Katarina123\Desktop\zavrsni_rad\zavrsni\web\bin\RazorEngine.xml

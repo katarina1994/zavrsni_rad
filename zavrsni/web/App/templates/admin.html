@@ -12,7 +12,7 @@
 
         <tr ng-repeat="korisnik in korisnici">
 
-            <td class="col-xs-1">
+            <td class="col-xs-1" ng-hide="izbrisano[korisnik.id] == 1">
 
                 <div class="panel-group">
                     <div class="panel panel-default">
@@ -22,13 +22,13 @@
                     </div>
                 </div>
             </td>
-            <td class="col-sm-1"> {{korisnik.userName}} </td>
-            <td class="col-xs-1"> {{korisnik.password}} </td>
-            <td class="col-sm-1"> {{korisnik.mail}} </td>
-            <td class="col-sm-1"> {{korisnik.ovlastID}} <br /> {{ovlasti[korisnik.ovlastID]}}</td>
-            <td class="col-sm-1" ng-show="restorani[korisnik.restID][0].naziv"> {{korisnik.restID}} <br /> {{restorani[korisnik.restID][0].naziv}}</td>
-            <td class="col-sm-1" ng-hide="restorani[korisnik.restID][0].naziv"> (samo voditelj restorana ima ovaj podatak) </td>
-            <td class="col-sm-1">
+            <td class="col-sm-1" ng-hide="izbrisano[korisnik.id] == 1"> {{korisnik.userName}} </td>
+            <td class="col-xs-1" ng-hide="izbrisano[korisnik.id] == 1"> {{korisnik.password}} </td>
+            <td class="col-sm-1" ng-hide="izbrisano[korisnik.id] == 1"> {{korisnik.mail}} </td>
+            <td class="col-sm-1" ng-hide="izbrisano[korisnik.id] == 1"> {{korisnik.ovlastID}} <br /> {{ovlasti[korisnik.ovlastID]}}</td>
+            <td class="col-sm-1" ng-show="restorani[korisnik.restID][0].naziv" ng-hide="izbrisano[korisnik.id] == 1"> {{korisnik.restID}} <br /> {{restorani[korisnik.restID][0].naziv}}</td>
+            
+            <td class="col-sm-1" ng-hide="izbrisano[korisnik.id] == 1">
                 <button class="col-md-6 btn btn-info" ng-click="izbrisi(korisnik)"> 
                     izbriši 
                 </button>
@@ -37,4 +37,5 @@
 
 
     </table>
+   
 </div>

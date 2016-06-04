@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace web.Models
 {
@@ -25,5 +26,9 @@ namespace web.Models
         public int OvlastID { get; set; }
         public int RestID { get; set; }
 
+        public static explicit operator Korisnik(List<Korisnik> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
