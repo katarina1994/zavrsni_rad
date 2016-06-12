@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Nullable="false" Type="Boolean" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OvlastID" Type="Int32" />
+    <Property Name="RestID" Type="Int32" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jelo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv_jelo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Kratki_opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestoranID" Type="Int32" Nullable="false" />
+    <Property Name="TipJelaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Restoran" Relationship="Self.FK_dbo_Jelo_dbo_Restoran_RestoranID" FromRole="Jelo" ToRole="Restoran" />
+    <NavigationProperty Name="TipJela" Relationship="Self.FK_dbo_Jelo_dbo_TipJela_TipJelaID" FromRole="Jelo" ToRole="TipJela" />
+    <NavigationProperty Name="OdabranoJelo" Relationship="Self.FK_dbo_OdabranoJelo_dbo_Jelo_JeloID" FromRole="Jelo" ToRole="OdabranoJelo" />
+  </EntityType>
+  <EntityType Name="OdabranoJelo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kolicina" Type="Int32" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Vrijeme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UkupnaCijena" Type="Int32" Nullable="false" />
+    <Property Name="JeloID" Type="Int32" Nullable="false" />
+    <Property Name="RestoranID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Jelo" Relationship="Self.FK_dbo_OdabranoJelo_dbo_Jelo_JeloID" FromRole="OdabranoJelo" ToRole="Jelo" />
+    <NavigationProperty Name="Restoran" Relationship="Self.FK_dbo_OdabranoJelo_dbo_Restoran_RestoranID" FromRole="OdabranoJelo" ToRole="Restoran" />
+  </EntityType>
+  <EntityType Name="Ovlast">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Restoran">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RadijusDostave" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="Vrijeme_otvaranja" Type="Int32" Nullable="false" />
+    <Property Name="Vrijeme_zatvaranja" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Jelo" Relationship="Self.FK_dbo_Jelo_dbo_Restoran_RestoranID" FromRole="Restoran" ToRole="Jelo" />
+    <NavigationProperty Name="OdabranoJelo" Relationship="Self.FK_dbo_OdabranoJelo_dbo_Restoran_RestoranID" FromRole="Restoran" ToRole="OdabranoJelo" />
+  </EntityType>
+  <EntityType Name="TipJela">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv_tipa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Jelo" Relationship="Self.FK_dbo_Jelo_dbo_TipJela_TipJelaID" FromRole="TipJela" ToRole="Jelo" />
+  </EntityType>
+  <Association Name="FK_dbo_Jelo_dbo_Restoran_RestoranID">
+    <End Role="Restoran" Type="Self.Restoran" Multiplicity="1" />
+    <End Role="Jelo" Type="Self.Jelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restoran">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Jelo">
+        <PropertyRef Name="RestoranID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Jelo_dbo_TipJela_TipJelaID">
+    <End Role="TipJela" Type="Self.TipJela" Multiplicity="1" />
+    <End Role="Jelo" Type="Self.Jelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipJela">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Jelo">
+        <PropertyRef Name="TipJelaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OdabranoJelo_dbo_Jelo_JeloID">
+    <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
+    <End Role="OdabranoJelo" Type="Self.OdabranoJelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jelo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OdabranoJelo">
+        <PropertyRef Name="JeloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OdabranoJelo_dbo_Restoran_RestoranID">
+    <End Role="Restoran" Type="Self.Restoran" Multiplicity="1" />
+    <End Role="OdabranoJelo" Type="Self.OdabranoJelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restoran">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OdabranoJelo">
+        <PropertyRef Name="RestoranID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Jelo" EntityType="Self.Jelo" />
+    <EntitySet Name="OdabranoJelo" EntityType="Self.OdabranoJelo" />
+    <EntitySet Name="Ovlast" EntityType="Self.Ovlast" />
+    <EntitySet Name="Restoran" EntityType="Self.Restoran" />
+    <EntitySet Name="TipJela" EntityType="Self.TipJela" />
+    <AssociationSet Name="FK_dbo_Jelo_dbo_Restoran_RestoranID" Association="Self.FK_dbo_Jelo_dbo_Restoran_RestoranID">
+      <End Role="Restoran" EntitySet="Restoran" />
+      <End Role="Jelo" EntitySet="Jelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Jelo_dbo_TipJela_TipJelaID" Association="Self.FK_dbo_Jelo_dbo_TipJela_TipJelaID">
+      <End Role="TipJela" EntitySet="TipJela" />
+      <End Role="Jelo" EntitySet="Jelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OdabranoJelo_dbo_Jelo_JeloID" Association="Self.FK_dbo_OdabranoJelo_dbo_Jelo_JeloID">
+      <End Role="Jelo" EntitySet="Jelo" />
+      <End Role="OdabranoJelo" EntitySet="OdabranoJelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OdabranoJelo_dbo_Restoran_RestoranID" Association="Self.FK_dbo_OdabranoJelo_dbo_Restoran_RestoranID">
+      <End Role="Restoran" EntitySet="Restoran" />
+      <End Role="OdabranoJelo" EntitySet="OdabranoJelo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

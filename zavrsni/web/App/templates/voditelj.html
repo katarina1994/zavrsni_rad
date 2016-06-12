@@ -6,8 +6,6 @@
     <div class="container col-md-6">
         <form name="myForm" class="col-md-8">
 
-            <input placeholder="id jela" ng-model="data.id" class="form-control col-md-6" />
-            <tt ng-hide="odabran_id != null">{{odabran_id = data.id}}</tt>
 
             <input placeholder="naziv jela" ng-model="data.naziv" class="form-control col-md-6" />
             <tt ng-hide="data.naziv != null">{{odabran_naziv = data.naziv}}</tt>
@@ -29,7 +27,7 @@
             </div>
         </form>
         <div class="col-md-8">
-            <button class="col-md-6 btn btn-info" ng-click="dodaj_jelo(odabran_id, odabran_naziv, odabrana_cijena, odabrani_detalji, odabran_tipid, id_restorana)">
+            <button class="col-md-6 btn btn-info" ng-click="dodaj_jelo(odabran_naziv, odabrana_cijena, odabrani_detalji, odabran_tipid, id_restorana)">
                 dodaj jelo u ponudu
             </button>
            

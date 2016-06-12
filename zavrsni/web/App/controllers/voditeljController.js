@@ -1,4 +1,4 @@
-﻿web.controller('voditeljController', ['$scope', 'tipJelaService', 'odabranoJeloService', 'authService', 'jela1Service', 'restoraniService', function ($scope, tipJelaService, odabranoJeloService, authService, jela1Service, restoraniService) {
+﻿web.controller('voditeljController', ['$scope', '$location', '$route', 'tipJelaService', 'odabranoJeloService', 'authService', 'jela1Service', 'restoraniService', function ($scope, $location, $route, tipJelaService, odabranoJeloService, authService, jela1Service, restoraniService) {
     
     $scope.tip = [];
     $scope.uklonjeno_jelo = [];
@@ -57,9 +57,9 @@
 
     };
     
-    $scope.dodaj_jelo = function (id, naziv, cijena, detalji, tipid, restid) {
+    $scope.dodaj_jelo = function (naziv, cijena, detalji, tipid, restid) {
        
-        jela1Service.insertJelo(id, naziv, cijena, detalji, tipid, restid).then(function (result) {
+        jela1Service.insertJelo(naziv, cijena, detalji, tipid, restid).then(function (result) {
             $route.reload();
 
         });

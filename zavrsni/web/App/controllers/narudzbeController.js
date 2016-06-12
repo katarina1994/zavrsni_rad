@@ -8,7 +8,7 @@
     odabranoJeloService.getOdabranaJela().then(function (result) {
         
         $scope.pomocna1 = result.data;
-        
+        console.log($scope.pomocna1);
         for (m = 0; m < $scope.pomocna1.length; m++) {
             if ($scope.id == $scope.pomocna1[m].restoranID) {
                 $scope.narudzba.push($scope.pomocna1[m])
@@ -23,12 +23,16 @@
                 $scope.restoran = result.data;
             });
            
+            $scope.posalji_mail = function (id) {
+                odabranoJeloService.potvrdi(id);
+            }
+
             jela1Service.getJelaByID($scope.narudzba[i].jeloID).then(function (result) {
                 $scope.pomocna = result.data;
                 for (k = 0; k < $scope.pomocna.length; k++) {
                     if ($scope.id == $scope.pomocna[k].restoranID) {
                         $scope.jelo = $scope.pomocna
-                        console.log($scope.jelo);
+                     
                     }
                 }
             });
@@ -36,5 +40,5 @@
     });
 
 
-
+    
 }]);

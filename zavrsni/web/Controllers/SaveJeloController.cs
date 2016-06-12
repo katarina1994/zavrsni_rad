@@ -30,11 +30,21 @@ namespace web.Controllers
 
     
 
-        public bool Create(int newID, string newNaziv_jelo, int newCijena, string newKratki_opis, int newTipJelaID, int newRestoranID)
+        public bool Create(string newNaziv_jelo, int newCijena, string newKratki_opis, int newTipJelaID, int newRestoranID)
         {
 
 
-            var jelo = new Jelo { ID = newID, Naziv_jelo = newNaziv_jelo, Cijena = newCijena, Kratki_opis = newKratki_opis, TipJelaID = newTipJelaID, RestoranID = newRestoranID };
+            var jelo = new Jelo {Naziv_jelo = newNaziv_jelo, Cijena = newCijena, Kratki_opis = newKratki_opis, TipJelaID = newTipJelaID, RestoranID = newRestoranID };
+
+            foreach (Jelo e in db.Jela)
+            {
+                if (String.Equals(e.Naziv_jelo, jelo.Naziv_jelo, StringComparison.CurrentCultureIgnoreCase)
+                    && (e.Cijena == jelo.Cijena)
+                    && String.Equals(e.Kratki_opis, jelo.Kratki_opis, StringComparison.CurrentCultureIgnoreCase)
+                    && (e.TipJelaID == jelo.TipJelaID) && (e.RestoranID == jelo.RestoranID))
+                    return true;
+            }
+
             if (!ModelState.IsValid)
             {
                 return false;

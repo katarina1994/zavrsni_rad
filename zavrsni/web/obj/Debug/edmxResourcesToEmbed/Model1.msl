@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webModelStoreContainer" CdmEntityContainer="webEntities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="webModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="OvlastID" ColumnName="OvlastID" />
+          <ScalarProperty Name="RestID" ColumnName="RestID" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jelo">
+      <EntityTypeMapping TypeName="webModel.Jelo">
+        <MappingFragment StoreEntitySet="Jelo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naziv_jelo" ColumnName="Naziv_jelo" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Kratki_opis" ColumnName="Kratki_opis" />
+          <ScalarProperty Name="RestoranID" ColumnName="RestoranID" />
+          <ScalarProperty Name="TipJelaID" ColumnName="TipJelaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OdabranoJelo">
+      <EntityTypeMapping TypeName="webModel.OdabranoJelo">
+        <MappingFragment StoreEntitySet="OdabranoJelo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+          <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
+          <ScalarProperty Name="JeloID" ColumnName="JeloID" />
+          <ScalarProperty Name="RestoranID" ColumnName="RestoranID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ovlast">
+      <EntityTypeMapping TypeName="webModel.Ovlast">
+        <MappingFragment StoreEntitySet="Ovlast">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restoran">
+      <EntityTypeMapping TypeName="webModel.Restoran">
+        <MappingFragment StoreEntitySet="Restoran">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="RadijusDostave" ColumnName="RadijusDostave" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Vrijeme_otvaranja" ColumnName="Vrijeme_otvaranja" />
+          <ScalarProperty Name="Vrijeme_zatvaranja" ColumnName="Vrijeme_zatvaranja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipJela">
+      <EntityTypeMapping TypeName="webModel.TipJela">
+        <MappingFragment StoreEntitySet="TipJela">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naziv_tipa" ColumnName="Naziv_tipa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

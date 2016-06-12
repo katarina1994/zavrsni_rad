@@ -19,8 +19,8 @@ jela1Service.deleteJelo = function (id) {
     return $http.get('api/Jelo/DeleteJelo/' + id);
 }
 
-jela1Service.insertJelo = function (id, naziv, cijena, detalji, tipid, restid) {
-    return $http.get('/SaveJelo/Create/?newID=' + id + '&newNaziv_jelo=' + naziv + '&newCijena=' + cijena + '&newKratki_opis=' + detalji + '&newTipJelaID=' + tipid + '&newRestoranID=' + restid);
+jela1Service.insertJelo = function (naziv, cijena, detalji, tipid, restid) {
+    return $http.get('/SaveJelo/Create/?newNaziv_jelo=' + naziv + '&newCijena=' + cijena + '&newKratki_opis=' + detalji + '&newTipJelaID=' + tipid + '&newRestoranID=' + restid);
 }
 
 return jela1Service;

@@ -271,7 +271,7 @@
 
                 for (j = 0; j < $scope.nadeniRestorani.length; j++) {
                     if ($scope.nadeniRestorani[j].id == $scope.jela[i].restoranID) {
-                        console.log($scope.nadeniRestorani[j].naziv);
+                        //console.log($scope.nadeniRestorani[j].naziv);
                         if (contains($scope.nadeno, $scope.nadeniRestorani[j]) == false) {
                             $scope.nadeno.push($scope.nadeniRestorani[j]);
                         }

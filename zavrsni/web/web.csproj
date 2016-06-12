@@ -130,6 +130,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Activities" />
@@ -286,6 +288,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\PotvrdaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JeloController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
@@ -294,6 +297,7 @@
     <Compile Include="Controllers\RestoraniController.cs" />
     <Compile Include="Controllers\SaveJeloController.cs" />
     <Compile Include="Controllers\TipJelaController.cs" />
+    <Compile Include="Controllers\UrediRestoranController.cs" />
     <Compile Include="DAL\DatabaseContext.cs" />
     <Compile Include="DAL\DatabaseInitializer.cs" />
     <Compile Include="Infrastructure\KorisnikManager.cs" />
@@ -328,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

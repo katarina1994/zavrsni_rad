@@ -11,6 +11,10 @@
         return $http.get('/OdabranoJelo/Create/?newID=' + id + '&newKolicina=' + odab_jelo[1] + '&newMail=' + mail + '&newAdresa=' + moja_adresa + '&newVrijeme=' + vrijeme + '&newJeloID=' + odab_jelo[0] + '&newRestoranID=' + restid + '&newUkupnaCijena=' + ukupna);
     }
 
+    odabranoJeloService.potvrdi = function (id) {
+        return $http.get('api/Potvrda/Potvrda/' + id);
+    }
+
     return odabranoJeloService;
 
 }]);
