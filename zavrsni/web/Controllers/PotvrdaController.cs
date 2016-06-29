@@ -1,9 +1,14 @@
-﻿using System;
+﻿using MailKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web.Http;
 using web.DAL;
 using web.Models;
@@ -20,23 +25,31 @@ namespace web.Controllers
         [AcceptVerbs("GET")]
         [Route("Potvrda/{id:int}")]
         [HttpGet]
-        public String Potvrda(int id)
+        public async Task<string> Potvrda(int id)
         {
 
-            IQueryable< OdabranoJelo>  odabrano_jelo =  db.OdabranaJela.Where(s => s.ID == id);
-            Console.WriteLine(odabrano_jelo);
-            //IQueryable<Jelo> jelo = db.OdabranaJela.Where(s => s.ID == odabrano_jelo.JeloID);
-            MailMessage mailMessage = new MailMessage();
-            MailAddress fromAddress = new MailAddress("cvrcko111@gmail.com");
-            mailMessage.From = fromAddress;
-            mailMessage.To.Add("cvrcko111@gmail.com");
-            mailMessage.Body = "Vasa narudzba jela je potvrdena.";
-            mailMessage.IsBodyHtml = true;
-            mailMessage.Subject = " Testing Email";
-            SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = "localhost";
-            smtpClient.Send(mailMessage);
-            return "id: " + id;
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("POTVRDA NARUDŽBE", "bubbles.notification@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("", "cvrcko111@gmail.com"));
+            emailMessage.Subject = "POTVRDA NARUDŽBE";
+            emailMessage.Body = new TextPart("html") { Text = "Vaše naručeno jelo je potvrđeno." };
+
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            {
+                try {
+                    await client.ConnectAsync("smtp.gmail.com", 465, SecureSocketOptions.Auto).ConfigureAwait(false);
+                    await client.AuthenticateAsync("bubbles.notification", "Dr(!*Ezk@R48");
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                }
+                catch(Exception ovo_je_neki_duzi_naziv)
+                {
+                    return "uzas";
+
+                }
+            }
+            return "bla";
         }
 }
 }

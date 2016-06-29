@@ -12,8 +12,8 @@ using System.Threading;
 
 namespace web.DAL
 {
-    public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseAlways<DatabaseContext>
-    //public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DatabaseContext>
+    //public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseAlways<DatabaseContext>
+    public class DatabaseInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
         protected override void Seed(DatabaseContext context)
         {

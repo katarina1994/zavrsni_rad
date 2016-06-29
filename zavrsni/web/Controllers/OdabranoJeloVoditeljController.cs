@@ -25,6 +25,13 @@ namespace web.Controllers
             return db.OdabranaJela;
         }
 
+
+        [AcceptVerbs("GET")]
+        [Route("GetOdabranaJelaID/{id:int}")]
+        public IQueryable<OdabranoJelo> GetOdabranaJelaID(int id)
+        {
+            return db.OdabranaJela.Where(s => s.ID == id);
+        }
         // GET: api/OdabranoJeloVoditelj/5
         [ResponseType(typeof(OdabranoJelo))]
         public IHttpActionResult GetOdabranoJelo(int id)

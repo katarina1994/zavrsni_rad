@@ -24,7 +24,11 @@
             });
            
             $scope.posalji_mail = function (id) {
-                odabranoJeloService.potvrdi(id);
+                //odabranoJeloService.getOdabranaJelaID(id).then(function (result) {
+                 
+                    //console.log(result.data[0].mail);
+                    odabranoJeloService.potvrdi(id);
+                //});
             }
 
             jela1Service.getJelaByID($scope.narudzba[i].jeloID).then(function (result) {
